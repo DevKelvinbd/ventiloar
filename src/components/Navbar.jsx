@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 
 const NAV_ITEMS = [
-  { label: 'Início', path: '/' },
+  { label: 'Início', path: '/inicio' },
   { label: 'Produto', path: '/produto' },
   { label: 'Loja', path: '/loja' },
   { label: 'Orçamento', path: '/orcamento' },
@@ -20,7 +20,7 @@ export default function Navbar() {
     <nav className="bg-background/60 backdrop-blur-xl sticky top-0 z-50 w-full shadow-[0_40px_60px_-15px_rgba(223,226,235,0.06)]">
       <div className="flex justify-between items-center w-full px-6 md:px-8 py-4 max-w-7xl mx-auto">
         {/* Logo */}
-        <Link to="/" className="text-2xl font-bold uppercase text-on-surface tracking-tighter font-headline">
+        <Link to="/inicio" className="text-2xl font-bold uppercase text-on-surface tracking-tighter font-headline">
           VENTILOAR
         </Link>
 
