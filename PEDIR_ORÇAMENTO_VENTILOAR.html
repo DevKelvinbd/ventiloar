@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sistema Integrado de Ventiladores — Simulador e Orçamento</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+    :root {
+      --primary:#2c6fbb; --primary-dark:#1a5da5; --secondary:#25d366; --secondary-dark:#1ebc5b; --accent:#ff6b35;
+      --light:#f8f9fa; --dark:#333; --success:#28a745; --danger:#dc3545; --gray:#6c757d; --border:#dee2e6;
+      --bg-gradient:linear-gradient(135deg,#1a2980,#26d0ce);
+    }
+    body { background:var(--bg-gradient); color:var(--dark); min-height:100vh; padding:20px; }
+    .container { background:#fff; border-radius:16px; box-shadow:0 12px 30px rgba(0,0,0,.2); width:100%; max-width:1200px; overflow:hidden; margin:0 auto; }
+    .header { background:var(--primary); color:#fff; padding:25px 30px; text-align:center; position:relative; }
+    .header h1 { font-size:1.8rem; margin-bottom:10px; font-weight:600; }
+    .header p { font-size:1rem; opacity:.9; max-width:700px; margin:0 auto; }
+    .content { display:flex; flex-wrap:wrap; padding:0; }
+    .form-section { flex:1; min-width:350px; padding:30px; border-right:1px solid var(--border); background:#fafcff; }
+    .result-section { flex:1; min-width:350px; padding:30px; background:#fff; max-height:80vh; overflow-y:auto; }
+    .section-title { font-size:1.4rem; color:var(--primary); margin-bottom:20px; padding-bottom:12px; border-bottom:2px solid var(--border); display:flex; align-items:center; }
+    .section-title i { margin-right:10px; background:var(--primary); color:#fff; width:36px; height:36px; border-radius:50%; display:flex; align-items:center; justify-content:center; }
+    .form-group { margin-bottom:20px; position:relative; }
+    .form-group label { display:block; margin-bottom:8px; font-weight:500; color:var(--dark); display:flex; align-items:center; }
+    .form-group label i { margin-right:10px; color:var(--primary); width:20px; text-align:center; }
+    .input-with-icon { position:relative; }
+    .input-with-icon i { position:absolute; left:15px; top:50%; transform:translateY(-50%); color:var(--gray); font-size:18px; }
+    input, select { width:100%; padding:14px 20px 14px 45px; border:2px solid var(--border); border-radius:10px; font-size:16px; transition:all .3s ease; background:#fff; }
+    input:focus, select:focus { outline:none; border-color:var(--primary); box-shadow:0 0 0 3px rgba(44,111,187,.2); }
+    button { border:none; padding:15px; border-radius:10px; cursor:pointer; font-size:16px; font-weight:600; transition:all .3s ease; display:flex; align-items:center; justify-content:center; gap:10px; }
+    button#calcular { background:var(--primary); color:#fff; margin-top:10px; }
+    button#calcular:hover { background:var(--primary-dark); transform:translateY(-2px); box-shadow:0 5px 15px rgba(44,111,187,.3); }
+    button#whatsapp { background:var(--secondary); color:#fff; margin-top:20px; }
+    button#whatsapp:hover { background:var(--secondary-dark); transform:translateY(-2px); box-shadow:0 5px 15px rgba(37,211,102,.3); }
+    button#simular { background:var(--accent); color:#fff; margin-top:15px; }
+    button#simular:hover { background:#e55a2d; transform:translateY(-2px); box-shadow:0 5px 15px rgba(255,107,53,.3); }
+    button#compartilhar { background:var(--primary); color:#fff; margin-top:15px; }
+    button#compartilhar:hover { background:var(--primary-dark); transform:translateY(-2px); box-shadow:0 5px 15px rgba(44,111,187,.3); }
+    button:disabled { opacity:.6; cursor:not-allowed; box-shadow:none; transform:none; }
+    small.help { display:block; color:var(--gray); margin-top:6px; margin-left:4px; }
+    #resultado { margin-top:20px; }
+    .relatorio-item { margin:15px 0; display:flex; align-items:center; padding:12px 15px; border-radius:8px; background:#f8f9fa; transition:transform .3s ease; }
+    .relatorio-item:hover { transform:translateX(5px); background:#edf5ff; }
+    .relatorio-item i { font-size:1.2em; color:var(--primary); margin-right:15px; min-width:22px; text-align:center; }
+    .icon--good { color:var(--success) !important; }
+    .icon--bad  { color:var(--danger) !important; }
+    .comparison-header { display:flex; justify-content:space-between; margin:25px 0 15px; padding:0 15px; font-weight:bold; color:var(--dark); }
+    .sistema-title { color:var(--success); }
+    .tradicional-title { color:var(--danger); }
+    .economy-badge { background:linear-gradient(to right, var(--success), var(--primary)); color:#fff; padding:15px; border-radius:10px; margin-top:20px; text-align:center; font-weight:bold; font-size:1.05em; box-shadow:0 4px 10px rgba(0,0,0,.1); }
+    .form-row { display:flex; gap:15px; margin-bottom:20px; }
+    .form-row .form-group { flex:1; margin-bottom:0; }
+    .orcamento-section { display:none; margin-top:30px; padding:20px; background:#f0f8ff; border-radius:10px; border-left:4px solid var(--primary); }
+    .orcamento-title { color:var(--primary); margin-bottom:15px; display:flex; align-items:center; gap:10px; }
+    .orcamento-item { margin:10px 0; padding:10px; background:#fff; border-radius:8px; box-shadow:0 2px 5px rgba(0,0,0,.05); }
+    .total-orcamento { background:var(--primary); color:#fff; padding:15px; border-radius:8px; margin-top:20px; font-weight:bold; font-size:1.1em; text-align:center; }
+    .retorno-investimento { background:var(--success); color:#fff; padding:15px; border-radius:8px; margin-top:15px; text-align:center; font-size:1.05em; }
+    .info-empresa { background:#e9ecef; padding:15px; border-radius:8px; margin-top:20px; font-size:.92em; }
+    .placeholder-message { text-align:center; padding:30px 0; color:var(--gray); }
+    .placeholder-message i { font-size:4rem; color:#e9ecef; margin-bottom:20px; }
+    .placeholder-message p { max-width:350px; margin:0 auto; }
+    @media (max-width:900px){ .content{flex-direction:column;} .form-section{border-right:none; border-bottom:1px solid var(--border);} .form-row{flex-direction:column; gap:20px;} }
+    @media (max-width:480px){ .header h1{font-size:1.5rem;} .header p{font-size:.9rem;} .form-section,.result-section{padding:20px;} .section-title{font-size:1.2rem;} }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1><i class="fas fa-fan"></i> Sistema de Simulação e Orçamento de Ventiladores</h1>
+      <p>Calcule a economia e gere seu orçamento em poucos passos</p>
+    </div>
+
+    <div class="content">
+      <!-- ESQUERDA: FORMULÁRIOS -->
+      <div class="form-section">
+        <h2 class="section-title"><i class="fas fa-calculator"></i> Dados para Simulação</h2>
+        <form id="motorForm" novalidate>
+          <div class="form-group">
+            <label for="tamanhoEspaco"><i class="fas fa-ruler-combined"></i> Tamanho do Espaço (m²)</label>
+            <div class="input-with-icon">
+              <i class="fas fa-vector-square" aria-hidden="true"></i>
+              <input type="number" id="tamanhoEspaco" min="1" required placeholder="Ex: 150" value="150" inputmode="decimal" />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="tamanhoHelice"><i class="fas fa-wind"></i> Tamanho da Hélice <span class="suggested-tag" id="tagSugerido" style="background:#e8f4ff;color:var(--primary);border-radius:20px;padding:5px 12px;font-size:.8em;margin-left:10px;font-weight:500;">Sugerido</span></label>
+            <div class="input-with-icon">
+              <i class="fas fa-ruler" aria-hidden="true"></i>
+              <select id="tamanhoHelice" required>
+                <option value="50">50 cm</option>
+                <option value="60">60 cm</option>
+                <option value="70">70 cm</option>
+                <option value="100">100 cm</option>
+                <option value="120">120 cm</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="horasUso"><i class="fas fa-clock"></i> Horas de Uso por Dia</label>
+            <div class="input-with-icon">
+              <i class="fas fa-hourglass-half" aria-hidden="true"></i>
+              <input type="number" id="horasUso" min="1" required placeholder="Ex: 8" value="8" inputmode="decimal" />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="estado"><i class="fas fa-map-marker-alt"></i> Estado</label>
+              <div class="input-with-icon">
+                <i class="fas fa-flag" aria-hidden="true"></i>
+                <select id="estado" required></select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="valorKw"><i class="fas fa-bolt"></i> Valor do kWh (R$)</label>
+              <div class="input-with-icon">
+                <i class="fas fa-dollar-sign" aria-hidden="true"></i>
+                <input type="number" id="valorKw" min="0.01" step="0.01" required placeholder="Ex: 0,85" inputmode="decimal" />
+              </div>
+              <small class="help">Valor estimado por estado. Ajuste se souber sua tarifa exata.</small>
+            </div>
+          </div>
+
+          <button type="button" id="calcular"><i class="fas fa-calculator"></i> Calcular Economia</button>
+        </form>
+
+        <div id="formularioOrcamento">
+          <h2 class="section-title" style="margin-top:30px;"><i class="fas fa-file-invoice-dollar"></i> Solicitar Orçamento</h2>
+          <form id="orcamentoForm" novalidate>
+            <div class="form-group">
+              <label for="nomeCliente"><i class="fas fa-user"></i> Nome</label>
+              <div class="input-with-icon">
+                <i class="fas fa-signature" aria-hidden="true"></i>
+                <input type="text" id="nomeCliente" placeholder="Seu nome completo" required />
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="tipoEspaco"><i class="fas fa-building"></i> Tipo de Espaço</label>
+              <div class="input-with-icon">
+                <i class="fas fa-warehouse" aria-hidden="true"></i>
+                <input type="text" id="tipoEspaco" placeholder="Onde será instalado?" required />
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="endereco"><i class="fas fa-map-pin"></i> Endereço</label>
+              <div class="input-with-icon">
+                <i class="fas fa-location-dot" aria-hidden="true"></i>
+                <input type="text" id="endereco" placeholder="Endereço do local" required />
+              </div>
+            </div>
+            <div class="button-group">
+              <button type="button" id="whatsapp"><i class="fab fa-whatsapp"></i> Enviar Solicitação</button>
+              <button type="button" id="simular" disabled><i class="fas fa-calculator"></i> Simular Orçamento</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <!-- DIREITA: RESULTADOS -->
+      <div class="result-section">
+        <h2 class="section-title"><i class="fas fa-chart-line"></i> Resultados</h2>
+        <div id="resultado">
+          <div class="placeholder-message">
+            <i class="fas fa-calculator" aria-hidden="true"></i>
+            <p>Preencha os dados de simulação e clique em <b>Calcular Economia</b> para ver os resultados</p>
+          </div>
+        </div>
+
+        <div id="orcamentoResultado" class="orcamento-section">
+          <h3 class="orcamento-title"><i class="fas fa-file-invoice"></i> Orçamento Simulado</h3>
+          <div class="orcamento-item">
+            <strong>Hélices:</strong>
+            <div id="detalheHelices"></div>
+          </div>
+          <div class="orcamento-item">
+            <strong>Motores:</strong>
+            <div id="detalheMotores"></div>
+          </div>
+          <div class="total-orcamento"><div id="totalOrcamento">Valor Total: R$ 0,00</div></div>
+          <div class="retorno-investimento"><div id="retornoInvestimento">Recuperação do investimento: 0 meses</div></div>
+          <div class="info-empresa">
+            <p><strong>Projetação Empreendimentos Ltda</strong></p>
+            <p>Sistema Ventiloar</p>
+            <p>CNPJ: 47.950.352/0001-71</p>
+            <p>📞 Contato: (88) 99476-0657</p>
+          </div>
+          <button type="button" id="compartilhar" disabled><i class="fab fa-whatsapp"></i> Compartilhar Orçamento</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // ======= UTIL: formatações e helpers =======
+    const fmtBRL = (v) => Number(v).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+    const fmtKWh = (v) => `${Number(v).toFixed(2)} kWh`;
+    const fmtM2  = (v) => `${Number(v).toFixed(0)} m²`;
+    const fmtNum = (v) => Number(v).toLocaleString('pt-BR');
+
+    const escapeHTML = (s) => String(s)
+      .replaceAll('&', '&amp;')
+      .replaceAll('<', '&lt;')
+      .replaceAll('>', '&gt;')
+      .replaceAll('"', '&quot;')
+      .replaceAll("'", '&#039;');
+
+    const lerNumeroPositivo = (id) => {
+      const el = document.getElementById(id);
+      const v = parseFloat(el.value);
+      if (!Number.isFinite(v) || v <= 0) throw new Error(`Valor inválido em ${id}`);
+      return v;
+    };
+
+    // ======= ESTADOS e tarifas estimadas (mock) =======
+    const tarifasPorEstado = {
+      'Acre': 0.95, 'Alagoas': 0.83, 'Amapá': 0.93, 'Amazonas': 0.80,
+      'Bahia': 0.90, 'Ceará': 0.77, 'Distrito Federal': 0.70,
+      'Espírito Santo': 0.85, 'Goiás': 0.82, 'Maranhão': 0.89,
+      'Mato Grosso': 0.78, 'Mato Grosso do Sul': 0.80, 'Minas Gerais': 0.87,
+      'Pará': 0.88, 'Paraíba': 0.86, 'Paraná': 0.79, 'Pernambuco': 0.84,
+      'Piauí': 0.81, 'Rio de Janeiro': 0.91, 'Rio Grande do Norte': 0.92,
+      'Rio Grande do Sul': 0.86, 'Rondônia': 0.83, 'Roraima': 0.82,
+      'Santa Catarina': 0.87, 'São Paulo': 0.90, 'Sergipe': 0.78,
+      'Tocantins': 0.80
+    };
+
+    // ======= Tabelas técnicas =======
+    const motores = [
+      { modelo: '90YT120', potencia: 120 },
+      { modelo: '100YT200', potencia: 200 },
+      { modelo: '100YT250', potencia: 250 }
+    ];
+
+    const espacoPorHeliceMap = { 50:15, 60:20, 70:25, 100:50, 120:60 };
+    const potenciaTradicionalMap = { 50:150, 60:180, 70:200, 100:400, 120:540 };
+
+    const precosMotores = { 120:1400, 200:1600, 250:2000 };
+    const precosHelices = { 50:500, 60:600, 70:700, 100:1200, 120:1500 };
+
+    // ======= Estado global =======
+    let dadosSimulacao = null; // será um objeto após o cálculo
+    let dadosOrcamento = { nomeCliente: '', tipoEspaco: '', endereco: '' };
+    let motorSerie = motores[0];
+
+    const btnCalcular = document.getElementById('calcular');
+    const btnWhats    = document.getElementById('whatsapp');
+    const btnSimular  = document.getElementById('simular');
+    const btnCompart  = document.getElementById('compartilhar');
+
+    const precisaSimulacao = () => {
+      if (!dadosSimulacao || !Number.isFinite(dadosSimulacao?.economia)) {
+        alert("Antes, preencha os dados e clique em 'Calcular Economia'.");
+        return true;
+      }
+      return false;
+    };
+
+    // ======= UI: montar opções de estado =======
+    const estadoSelect = document.getElementById('estado');
+    function popularEstados() {
+      const frag = document.createDocumentFragment();
+      Object.keys(tarifasPorEstado).forEach((uf) => {
+        const opt = document.createElement('option');
+        opt.value = uf; opt.textContent = uf; frag.appendChild(opt);
+      });
+      estadoSelect.appendChild(frag);
+      estadoSelect.value = 'Ceará';
+      document.getElementById('valorKw').value = tarifasPorEstado['Ceará'];
+    }
+
+    // ======= Regras de sugestão da hélice =======
+    function sugerirHelice(tamanhoEspaco) {
+      let tamanho;
+      if (tamanhoEspaco <= 60) tamanho = 50;
+      else if (tamanhoEspaco <= 200) tamanho = 60;
+      else if (tamanhoEspaco <= 300) tamanho = 70;
+      else if (tamanhoEspaco <= 1000) tamanho = 100;
+      else tamanho = 120;
+      document.getElementById('tamanhoHelice').value = String(tamanho);
+    }
+
+    // ======= Cálculo principal =======
+    function calcularMotor() {
+      try {
+        const tamanhoEspaco = lerNumeroPositivo('tamanhoEspaco');
+        const tamanhoHelice = parseFloat(document.getElementById('tamanhoHelice').value);
+        const horasUso = lerNumeroPositivo('horasUso');
+        const valorKw = lerNumeroPositivo('valorKw');
+
+        // Define motor padrão conforme hélice
+        switch (tamanhoHelice) {
+          case 50: case 60: case 70:
+            motorSerie = motores[0]; break;
+          case 100:
+            motorSerie = motores[2]; break;
+          case 120:
+            motorSerie = motores[2]; break;
+          default:
+            motorSerie = motores[0];
+        }
+
+        const espacoPorHelice = espacoPorHeliceMap[tamanhoHelice] || 20;
+        const potenciaTradicional = potenciaTradicionalMap[tamanhoHelice] || 180;
+
+        const quantidadeHelices = Math.ceil(tamanhoEspaco / espacoPorHelice);
+        
+        // CORREÇÃO DEFINITIVA: 
+        // - 5 hélices por motor APENAS para 120cm
+        // - 10 hélices por motor para 50cm, 60cm, 70cm e 100cm
+const quantidadeMotoresSerie = (tamanhoHelice === 100 || tamanhoHelice === 120) 
+  ? Math.ceil(quantidadeHelices / 5)  // 5 hélices por motor para 100cm e 120cm
+  : Math.ceil(quantidadeHelices / 10); // 10 hélices por motor para os demais
+
+
+        const consumoMensalSerie = (quantidadeMotoresSerie * motorSerie.potencia * horasUso * 30) / 1000; // kWh
+        const consumoMensalTradicional = (quantidadeHelices * potenciaTradicional * horasUso * 30) / 1000; // kWh
+
+        const custoMensalSerie = consumoMensalSerie * valorKw;
+        const custoMensalTradicional = consumoMensalTradicional * valorKw;
+        const economia = Math.max(0, custoMensalTradicional - custoMensalSerie); // nunca negativa para o usuário
+
+        dadosSimulacao = {
+          tamanhoEspaco, tamanhoHelice,
+          quantidadeHelices, quantidadeMotoresSerie,
+          potenciaMotor: motorSerie.potencia,
+          consumoMensalSerie, consumoMensalTradicional,
+          custoMensalSerie, custoMensalTradicional,
+          economia
+        };
+
+        // Habilitar etapa de orçamento
+        btnSimular.disabled = false;
+
+        // Montar relatório (somente números e strings internas)
+        const resultadoMotor = `
+          <div class="relatorio-item"><i class="fas fa-ruler"></i> Tamanho do Espaço: ${fmtM2(tamanhoEspaco)}</div>
+          <div class="relatorio-item"><i class="fas fa-fan"></i> Hélice Escolhida: ${tamanhoHelice} cm</div>
+          <div class="relatorio-item"><i class="fas fa-fan"></i> Quantidade de Hélices: ${fmtNum(quantidadeHelices)}</div>
+          <div class="relatorio-item"><i class="fas fa-cogs"></i> Motores em Série: ${fmtNum(quantidadeMotoresSerie)}</div>
+          <div class="relatorio-item"><i class="fas fa-tools"></i> Motor para Sistema em Série: ${motorSerie.modelo} (${motorSerie.potencia} W)</div>
+          <div class="comparison-header"><span class="sistema-title">Sistema em Série</span><span class="tradicional-title">Sistema Tradicional</span></div>
+          <div class="relatorio-item"><i class="fas fa-cogs icon--bad"></i> Motores Tradicionais: ${fmtNum(quantidadeHelices)}</div>
+          <div class="relatorio-item"><i class="fas fa-bolt icon--good"></i> Consumo: ${fmtKWh(consumoMensalSerie)}</div>
+          <div class="relatorio-item"><i class="fas fa-bolt icon--bad"></i> Consumo: ${fmtKWh(consumoMensalTradicional)}</div>
+          <div class="relatorio-item"><i class="fas fa-money-bill-wave icon--good"></i> Custo: ${fmtBRL(custoMensalSerie)}</div>
+          <div class="relatorio-item"><i class="fas fa-money-bill-wave icon--bad"></i> Custo: ${fmtBRL(custoMensalTradicional)}</div>
+          <div class="economy-badge"><i class="fas fa-piggy-bank"></i> Economia Mensal: ${fmtBRL(economia)}</div>
+        `;
+
+        const resEl = document.getElementById('resultado');
+        resEl.innerHTML = resultadoMotor;
+        resEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      } catch (err) {
+        alert(err.message);
+      }
+    }
+
+    // ======= Enviar WhatsApp com a solicitação + simulação =======
+    function enviarWhatsApp() {
+      try {
+        if (precisaSimulacao()) return;
+        const nomeCliente = document.getElementById('nomeCliente').value.trim();
+        const tipoEspaco  = document.getElementById('tipoEspaco').value.trim();
+        const endereco    = document.getElementById('endereco').value.trim();
+        if (!nomeCliente || !tipoEspaco || !endereco) {
+          alert('Por favor, preencha todos os campos do formulário de orçamento!');
+          return;
+        }
+
+        dadosOrcamento = { nomeCliente, tipoEspaco, endereco };
+
+        const msg = [
+          '🙋 Olá, tenho interesse no sistema Ventiloar e gostaria de um orçamento!',
+          `📝 Nome: ${nomeCliente}`,
+          `📍 Endereço: ${endereco}`,
+          `🏫 Tipo de Espaço: ${tipoEspaco}`,
+          '',
+          '📊 Resultados da Simulação:',
+          `📏 Tamanho do Espaço: ${fmtM2(dadosSimulacao.tamanhoEspaco)}`,
+          `🌀 Hélice Escolhida: ${dadosSimulacao.tamanhoHelice} cm`,
+          `🌀 Quantidade de Hélices: ${fmtNum(dadosSimulacao.quantidadeHelices)}`,
+          `⚙️ Motores em Série: ${fmtNum(dadosSimulacao.quantidadeMotoresSerie)}`,
+          `⚙️ Motor (Série): ${motorSerie.modelo} (${dadosSimulacao.potenciaMotor} W)`,
+          '',
+          'COMPARAÇÃO DE CONSUMO',
+          `⚙️ Motores Tradicionais: ${fmtNum(dadosSimulacao.quantidadeHelices)}`,
+          `⚡ Série (Mensal): ${fmtKWh(dadosSimulacao.consumoMensalSerie)}`,
+          `💵 Custo Série: ${fmtBRL(dadosSimulacao.custoMensalSerie)}`,
+          `⚡ Tradicional (Mensal): ${fmtKWh(dadosSimulacao.consumoMensalTradicional)}`,
+          `💸 Custo Tradicional: ${fmtBRL(dadosSimulacao.custoMensalTradicional)}`,
+          `✅ Economia Estimada: ${fmtBRL(dadosSimulacao.economia)}`
+        ].join('\n');
+
+        const url = `https://wa.me/5588981581328?text=${encodeURIComponent(msg)}`;
+        window.open(url, '_blank');
+      } catch (e) { alert('Ocorreu um erro ao montar a mensagem.'); }
+    }
+
+    // ======= Simular orçamento =======
+    function simularOrcamento() {
+      try {
+        if (precisaSimulacao()) return;
+
+        const nomeCliente = document.getElementById('nomeCliente').value.trim();
+        const tipoEspaco  = document.getElementById('tipoEspaco').value.trim();
+        const endereco    = document.getElementById('endereco').value.trim();
+        if (!nomeCliente || !tipoEspaco || !endereco) {
+          alert('Por favor, preencha todos os campos do formulário de orçamento!');
+          return;
+        }
+
+        dadosOrcamento = { nomeCliente, tipoEspaco, endereco };
+
+        const valorHeliceUnidade = precosHelices[dadosSimulacao.tamanhoHelice] || 0;
+        const valorMotorUnidade  = precosMotores[dadosSimulacao.potenciaMotor] || 0;
+
+        const totalHelices = dadosSimulacao.quantidadeHelices * valorHeliceUnidade;
+        const totalMotores = dadosSimulacao.quantidadeMotoresSerie * valorMotorUnidade;
+        const totalInvestimento = totalHelices + totalMotores;
+
+        const economiaMensal = dadosSimulacao.economia;
+        const mesesParaRetorno = economiaMensal > 0 ? Math.ceil(totalInvestimento / economiaMensal) : null;
+
+        // Persistir para compartilhamento posterior
+        Object.assign(dadosSimulacao, { totalHelices, totalMotores, totalInvestimento, mesesParaRetorno });
+
+        // Exibir resultados com textContent (sem HTML dinâmico perigoso)
+        const detalheHelices = document.getElementById('detalheHelices');
+        detalheHelices.textContent = `${fmtNum(dadosSimulacao.quantidadeHelices)} hélices de ${dadosSimulacao.tamanhoHelice} cm + kits de transmissão (engrenagens, cabos e conectores): ${fmtBRL(totalHelices)}`;
+
+        const detalheMotores = document.getElementById('detalheMotores');
+        detalheMotores.textContent = `${fmtNum(dadosSimulacao.quantidadeMotoresSerie)} motor(es) em série ${dadosSimulacao.potenciaMotor} W: ${fmtBRL(totalMotores)}`;
+
+        document.getElementById('totalOrcamento').textContent = `Valor Total: ${fmtBRL(totalInvestimento)}`;
+        document.getElementById('retornoInvestimento').textContent = mesesParaRetorno ? `Recuperação do investimento em ${mesesParaRetorno} meses` : 'Recuperação do investimento: não aplicável';
+
+        // Mostrar e liberar compartilhar
+        const sec = document.getElementById('orcamentoResultado');
+        sec.style.display = 'block';
+        btnCompart.disabled = false;
+        sec.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      } catch (e) {
+        alert('Erro ao simular orçamento. Verifique os dados e tente novamente.');
+      }
+    }
+
+    // ======= Compartilhar orçamento (WhatsApp genérico) =======
+    function compartilharOrcamento() {
+      try {
+        if (!dadosSimulacao || dadosSimulacao.totalInvestimento == null) {
+          alert('Simule o orçamento antes de compartilhar.');
+          return;
+        }
+        const nomeCliente = dadosOrcamento.nomeCliente || 'Cliente';
+        const tipoEspaco  = dadosOrcamento.tipoEspaco  || 'Não especificado';
+        const endereco    = dadosOrcamento.endereco    || 'Não informado';
+
+        const retornoTxt = dadosSimulacao.mesesParaRetorno ? `${dadosSimulacao.mesesParaRetorno} meses` : 'não aplicável';
+
+        const msg = [
+          '*ORÇAMENTO SIMULADO - SISTEMA VENTILOAR*',
+          '',
+          `Cliente: ${nomeCliente}`,
+          `Local: ${tipoEspaco} - ${endereco}`,
+          '',
+          '*Detalhes do Sistema:*',
+          `- Tamanho do Espaço: ${fmtM2(dadosSimulacao.tamanhoEspaco)}`,
+          `- Hélice: ${dadosSimulacao.tamanhoHelice} cm`,
+          `- Quantidade de Hélices: ${fmtNum(dadosSimulacao.quantidadeHelices)}`,
+          `- Motores em Série: ${fmtNum(dadosSimulacao.quantidadeMotoresSerie)}`,
+          `- Potência do Motor: ${dadosSimulacao.potenciaMotor} W`,
+          '',
+          '*Investimento:*',
+          `- Hélices e kits: ${fmtBRL(dadosSimulacao.totalHelices)}`,
+          `- Motores: ${fmtBRL(dadosSimulacao.totalMotores)}`,
+          `- *TOTAL: ${fmtBRL(dadosSimulacao.totalInvestimento)}*`,
+          '',
+          '*Economia Estimada:*',
+          `- Mensal: ${fmtBRL(dadosSimulacao.economia)}`,
+          `- Recuperação do investimento: ${retornoTxt}`,
+          '',
+          '_*Projetação Empreendimentos Ltda*_',
+          '_CNPJ: 47.950.352/0001-71_',
+          '_Contato: (88) 99476-0657_'
+        ].join('\n');
+
+        const url = `https://wa.me/?text=${encodeURIComponent(msg)}`;
+        window.open(url, '_blank');
+      } catch (e) { alert('Erro ao compartilhar orçamento.'); }
+    }
+
+    // ======= Eventos =======
+    document.addEventListener('DOMContentLoaded', () => {
+      // popular estados e defaults
+      popularEstados();
+      sugerirHelice(parseFloat(document.getElementById('tamanhoEspaco').value) || 150);
+
+      // listeners
+      document.getElementById('tamanhoEspaco').addEventListener('input', (e) => {
+        const v = parseFloat(e.target.value);
+        if (Number.isFinite(v) && v > 0) sugerirHelice(v);
+      });
+
+      estadoSelect.addEventListener('change', (e) => {
+        const uf = e.target.value; const p = tarifasPorEstado[uf];
+        if (p) document.getElementById('valorKw').value = p;
+      });
+
+      btnCalcular.addEventListener('click', calcularMotor);
+      btnWhats.addEventListener('click', enviarWhatsApp);
+      btnSimular.addEventListener('click', simularOrcamento);
+      btnCompart.addEventListener('click', compartilharOrcamento);
+    });
+  </script>
+</body>
+</html>

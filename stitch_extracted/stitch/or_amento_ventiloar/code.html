@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>VENTILOAR | Fazer Orçamento</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "error-container": "#93000a",
+                    "secondary-container": "#224c57",
+                    "on-background": "#dfe2eb",
+                    "secondary-fixed-dim": "#a3cdd9",
+                    "inverse-surface": "#dfe2eb",
+                    "on-secondary-container": "#92bcc8",
+                    "tertiary-container": "#ffb14f",
+                    "surface-tint": "#56d6f2",
+                    "on-error-container": "#ffdad6",
+                    "tertiary": "#ffd6aa",
+                    "outline-variant": "#3d494c",
+                    "on-tertiary-container": "#714500",
+                    "on-surface-variant": "#bcc9cd",
+                    "surface-bright": "#353940",
+                    "on-primary-fixed-variant": "#004e5c",
+                    "primary-fixed": "#aaedff",
+                    "on-surface": "#dfe2eb",
+                    "inverse-primary": "#006879",
+                    "on-secondary-fixed": "#001f26",
+                    "tertiary-fixed": "#ffddb9",
+                    "on-tertiary": "#482a00",
+                    "surface-container-lowest": "#0a0e14",
+                    "background": "#10141a",
+                    "surface-container-highest": "#31353c",
+                    "surface-container-low": "#181c22",
+                    "surface": "#10141a",
+                    "on-secondary": "#03363f",
+                    "surface-container": "#1c2026",
+                    "error": "#ffb4ab",
+                    "on-tertiary-fixed": "#2b1700",
+                    "primary-container": "#4fd1ed",
+                    "outline": "#869397",
+                    "primary-fixed-dim": "#56d6f2",
+                    "on-primary-fixed": "#001f26",
+                    "on-primary": "#003640",
+                    "primary": "#96eaff",
+                    "surface-dim": "#10141a",
+                    "on-tertiary-fixed-variant": "#663e00",
+                    "surface-variant": "#31353c",
+                    "on-secondary-fixed-variant": "#224c57",
+                    "secondary": "#a3cdd9",
+                    "tertiary-fixed-dim": "#ffb964",
+                    "on-primary-container": "#005766",
+                    "on-error": "#690005",
+                    "surface-container-high": "#262a31",
+                    "inverse-on-surface": "#2d3137",
+                    "secondary-fixed": "#bfeaf6"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Space Grotesk"],
+                    "body": ["Inter"],
+                    "label": ["Space Grotesk"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .technical-grid {
+            background-image: radial-gradient(circle, #3d494c 1px, transparent 1px);
+            background-size: 32px 32px;
+            background-position: center center;
+            opacity: 0.1;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body min-h-screen selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopNavBar -->
+<nav class="bg-[#10141a]/60 backdrop-blur-xl flex justify-between items-center w-full px-8 py-4 max-w-full mx-auto docked full-width top-0 sticky z-50 shadow-[0_40px_60px_-15px_rgba(223,226,235,0.06)]">
+<div class="text-2xl font-bold uppercase text-[#dfe2eb] tracking-tighter font-headline">VENTILOAR</div>
+<div class="hidden md:flex items-center gap-8 font-headline">
+<a class="text-[#dfe2eb] hover:text-[#96eaff] transition-colors uppercase tracking-wider text-sm" href="#">Início</a>
+<a class="text-[#dfe2eb] hover:text-[#96eaff] transition-colors uppercase tracking-wider text-sm" href="#">Produto</a>
+<a class="text-[#dfe2eb] hover:text-[#96eaff] transition-colors uppercase tracking-wider text-sm" href="#">Loja</a>
+<a class="text-[#4FD1ED] border-b-2 border-[#4FD1ED] pb-1 font-bold uppercase tracking-wider text-sm" href="#">Orçamento</a>
+<a class="text-[#dfe2eb] hover:text-[#96eaff] transition-colors uppercase tracking-wider text-sm" href="#">Quem Somos</a>
+<a class="text-[#dfe2eb] hover:text-[#96eaff] transition-colors uppercase tracking-wider text-sm" href="#">Sustentabilidade</a>
+<a class="text-[#dfe2eb] hover:text-[#96eaff] transition-colors uppercase tracking-wider text-sm" href="#">Parceiros</a>
+</div>
+<button class="bg-tertiary-container text-on-tertiary px-6 py-2 rounded-sm font-headline font-bold text-xs tracking-widest hover:bg-tertiary transition-all duration-300 active:scale-95">GET STARTED</button>
+</nav>
+<main class="relative">
+<!-- Background Decoration -->
+<div class="absolute inset-0 technical-grid pointer-events-none"></div>
+<!-- Content Shell -->
+<div class="max-w-7xl mx-auto px-6 py-20 relative z-10">
+<!-- Header Section -->
+<header class="mb-16">
+<div class="flex items-baseline gap-4 mb-2">
+<span class="text-primary-container font-headline font-bold text-sm tracking-[0.2em] uppercase">Control Room // Quote</span>
+<div class="h-[1px] flex-grow bg-outline-variant opacity-20"></div>
+</div>
+<h1 class="text-6xl md:text-8xl font-headline font-bold uppercase tracking-tighter leading-none mb-4">
+                    Fazer Orçamento
+                </h1>
+<div class="w-24 h-2 bg-primary-container"></div>
+</header>
+<!-- Main Asymmetric Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+<!-- Left Column: Simulation Form -->
+<div class="lg:col-span-7 space-y-8">
+<!-- Form Step 1: Technical specs -->
+<section class="bg-surface-container-low p-8 relative overflow-hidden group">
+<div class="absolute top-0 right-0 p-4 opacity-5 group-hover:opacity-10 transition-opacity">
+<span class="material-symbols-outlined text-9xl">engineering</span>
+</div>
+<div class="flex items-center gap-2 mb-8">
+<span class="text-primary border border-primary/30 px-2 py-1 text-[10px] font-headline font-bold">01</span>
+<h2 class="font-headline font-bold uppercase text-xl tracking-tight">Simulação de Espaço</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="space-y-1">
+<label class="text-[10px] font-headline font-bold text-on-surface-variant uppercase tracking-widest ml-1">Área do Local (m²)</label>
+<input class="w-full bg-surface-container border-none focus:ring-0 border-b-2 border-transparent focus:border-primary-container text-on-surface placeholder:text-outline/50 transition-all py-3 px-4" placeholder="Ex: 500" type="number"/>
+</div>
+<div class="space-y-1">
+<label class="text-[10px] font-headline font-bold text-on-surface-variant uppercase tracking-widest ml-1">Tipo de Edificação</label>
+<select class="w-full bg-surface-container border-none focus:ring-0 border-b-2 border-transparent focus:border-primary-container text-on-surface transition-all py-3 px-4">
+<option>Galpão Industrial</option>
+<option>Centro Comercial</option>
+<option>Instituição de Ensino</option>
+<option>Auditório/Teatro</option>
+<option>Outro</option>
+</select>
+</div>
+<div class="space-y-1">
+<label class="text-[10px] font-headline font-bold text-on-surface-variant uppercase tracking-widest ml-1">Número de Pontos</label>
+<input class="w-full bg-surface-container border-none focus:ring-0 border-b-2 border-transparent focus:border-primary-container text-on-surface placeholder:text-outline/50 transition-all py-3 px-4" placeholder="Ex: 12" type="number"/>
+</div>
+<div class="space-y-1">
+<label class="text-[10px] font-headline font-bold text-on-surface-variant uppercase tracking-widest ml-1">Tarifa Energia (R$/kWh)</label>
+<input class="w-full bg-surface-container-high border-none focus:ring-0 border-b-2 border-transparent focus:border-primary-container text-primary font-mono transition-all py-3 px-4" type="text" value="0.77"/>
+</div>
+</div>
+<div class="mt-10 flex justify-end">
+<button class="flex items-center gap-3 bg-surface-container-highest hover:bg-primary-container hover:text-on-primary-container transition-all px-8 py-4 font-headline font-bold uppercase tracking-widest text-xs">
+<span class="material-symbols-outlined text-sm">calculate</span>
+                                Calcular Economia Estimada
+                            </button>
+</div>
+</section>
+<!-- Form Step 2: Identification -->
+<section class="bg-surface-container-low p-8">
+<div class="flex items-center gap-2 mb-8">
+<span class="text-primary border border-primary/30 px-2 py-1 text-[10px] font-headline font-bold">02</span>
+<h2 class="font-headline font-bold uppercase text-xl tracking-tight">Dados de Identificação</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="md:col-span-2 space-y-1">
+<label class="text-[10px] font-headline font-bold text-on-surface-variant uppercase tracking-widest ml-1">Nome Completo / Razão Social</label>
+<input class="w-full bg-surface-container border-none focus:ring-0 border-b-2 border-transparent focus:border-primary-container text-on-surface transition-all py-3 px-4" type="text"/>
+</div>
+<div class="space-y-1">
+<label class="text-[10px] font-headline font-bold text-on-surface-variant uppercase tracking-widest ml-1">WhatsApp de Contato</label>
+<input class="w-full bg-surface-container border-none focus:ring-0 border-b-2 border-transparent focus:border-primary-container text-on-surface transition-all py-3 px-4" placeholder="(00) 00000-0000" type="tel"/>
+</div>
+<div class="space-y-1">
+<label class="text-[10px] font-headline font-bold text-on-surface-variant uppercase tracking-widest ml-1">E-mail Corporativo</label>
+<input class="w-full bg-surface-container border-none focus:ring-0 border-b-2 border-transparent focus:border-primary-container text-on-surface transition-all py-3 px-4" type="email"/>
+</div>
+<div class="md:col-span-2 space-y-1">
+<label class="text-[10px] font-headline font-bold text-on-surface-variant uppercase tracking-widest ml-1">Cidade / Estado</label>
+<input class="w-full bg-surface-container border-none focus:ring-0 border-b-2 border-transparent focus:border-primary-container text-on-surface transition-all py-3 px-4" type="text"/>
+</div>
+</div>
+</section>
+<div class="flex flex-col md:flex-row gap-4 items-center">
+<a class="w-full md:w-auto bg-primary-container text-on-primary-container font-headline font-bold uppercase tracking-[0.2em] text-sm px-12 py-5 text-center flex items-center justify-center gap-4 hover:bg-primary hover:shadow-[0_0_30px_rgba(79,209,237,0.3)] transition-all" href="https://wa.me/yourlink">
+<span class="material-symbols-outlined">send</span>
+                            Enviar Solicitação via WhatsApp
+                        </a>
+<p class="text-[10px] text-on-surface-variant max-w-xs leading-relaxed">
+                            Ao enviar, você concorda com nossa política de processamento de dados industriais.
+                        </p>
+</div>
+</div>
+<!-- Right Column: Visual telemetry & Info -->
+<aside class="lg:col-span-5 space-y-8">
+<!-- Preview Card (The Glass Panel) -->
+<div class="bg-surface-container-low/60 backdrop-blur-xl p-8 border-l-4 border-primary-container h-fit sticky top-28">
+<h3 class="font-headline font-bold uppercase text-xs tracking-[0.3em] text-primary-container mb-6">Resumo da Engenharia</h3>
+<div class="space-y-6">
+<div class="bg-surface-container-lowest p-4">
+<div class="text-[10px] text-on-surface-variant uppercase font-headline tracking-widest mb-1">Custo Projetado (Anual)</div>
+<div class="text-3xl font-mono text-tertiary-fixed-dim">R$ 0,00</div>
+<div class="mt-2 h-1 w-full bg-outline-variant/20 overflow-hidden">
+<div class="h-full bg-tertiary-fixed-dim w-1/4"></div>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div class="bg-surface-container-lowest p-4">
+<div class="text-[10px] text-on-surface-variant uppercase font-headline tracking-widest mb-1">Fluxo de Ar</div>
+<div class="text-xl font-mono text-secondary">0.0 m³/s</div>
+</div>
+<div class="bg-surface-container-lowest p-4">
+<div class="text-[10px] text-on-surface-variant uppercase font-headline tracking-widest mb-1">Eficiência</div>
+<div class="text-xl font-mono text-primary">-- %</div>
+</div>
+</div>
+<div class="p-4 border border-outline-variant/20">
+<p class="text-sm text-on-surface-variant leading-relaxed italic">
+                                    "A simulação utiliza os algoritmos de precisão da Ventiloar para calcular a carga térmica e o deslocamento de massa de ar baseado em padrões DIN."
+                                </p>
+</div>
+</div>
+<div class="mt-8 pt-8 border-t border-outline-variant/10">
+<div class="flex items-center gap-3 text-xs font-headline font-medium text-on-secondary-container">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">verified</span>
+                                Certificação de Eficiência Grade A+
+                            </div>
+</div>
+</div>
+<!-- Visual Highlight Image -->
+<div class="relative group overflow-hidden">
+<img alt="Industrial Engine" class="w-full grayscale hover:grayscale-0 transition-all duration-700 aspect-square object-cover" data-alt="Technical close-up of a high-performance industrial ventilation fan assembly with precision blades and atmospheric engineering details in dark lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB7xI9BDutQQMVS7Dz_anw1QbtnVWnDqDI8FsNO-QcUli45TJeT17_P4UegP-hvF5Mgi086R9HBeSjWakOxXd9XXmQYn-aXaMX2qZGaR_Gis_NW688y7Xu3RzY9OcukuJMKPtiiL0oz3kzI5Nb1nKDvnxUeuMp9AoyGbpr8d1QW5eZAvqtCIqQzkXmMl9M8OAU18dpFzKhqeND86vPPcHoiVKvEHR-K4kEGShaqpPXPtoW2M0cJnXZBTEdG-FrS5gwhgCZ0-VPbp8HQ"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent"></div>
+<div class="absolute bottom-4 left-4 right-4">
+<p class="text-[10px] font-headline font-bold uppercase tracking-widest text-primary-fixed">Engine Specification: Model V-400X</p>
+</div>
+</div>
+</aside>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-[#0a0e14] w-full border-t border-[#3d494c]/15">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-12 px-12 py-16 w-full">
+<div class="space-y-4">
+<div class="text-xl font-bold text-[#dfe2eb] uppercase font-headline">VENTILOAR</div>
+<p class="text-sm text-on-surface-variant max-w-xs font-body opacity-80 leading-relaxed">
+                    Precision atmospheric engineering for high-stakes industrial environments. Controlled environments, optimized energy.
+                </p>
+</div>
+<div>
+<h4 class="font-headline font-bold uppercase text-xs tracking-widest text-[#4FD1ED] mb-6">Navigation</h4>
+<ul class="space-y-3 font-body text-sm">
+<li><a class="text-[#dfe2eb]/60 hover:text-[#96eaff] transition-colors underline decoration-[#4FD1ED] underline-offset-4" href="#">Início</a></li>
+<li><a class="text-[#dfe2eb]/60 hover:text-[#96eaff] transition-colors" href="#">Produto</a></li>
+<li><a class="text-[#dfe2eb]/60 hover:text-[#96eaff] transition-colors" href="#">Loja</a></li>
+<li><a class="text-[#dfe2eb]/60 hover:text-[#96eaff] transition-colors" href="#">Orçamento</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-headline font-bold uppercase text-xs tracking-widest text-[#4FD1ED] mb-6">Social Core</h4>
+<ul class="space-y-3 font-body text-sm">
+<li><a class="text-[#dfe2eb]/60 hover:text-[#96eaff] transition-colors" href="#">LinkedIn</a></li>
+<li><a class="text-[#dfe2eb]/60 hover:text-[#96eaff] transition-colors" href="#">Instagram</a></li>
+<li><a class="text-[#dfe2eb]/60 hover:text-[#96eaff] transition-colors" href="#">YouTube Tech</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-headline font-bold uppercase text-xs tracking-widest text-[#4FD1ED] mb-6">Contact Engineering</h4>
+<p class="text-sm text-[#dfe2eb]/60 mb-2">contato@ventiloar.com.br</p>
+<p class="text-sm text-[#dfe2eb]/60">+55 11 90000-0000</p>
+</div>
+</div>
+<div class="px-12 py-8 border-t border-[#3d494c]/10 text-[10px] text-center text-on-surface-variant font-headline tracking-[0.2em] opacity-60">
+            © 2024 VENTILOAR PRECISION ATMOSPHERIC ENGINEERING. ALL RIGHTS RESERVED.
+        </div>
+</footer>
+</body></html>

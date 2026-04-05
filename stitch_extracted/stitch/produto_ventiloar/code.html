@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>VENTILOAR | Sistema de Engenharia Atmosférica</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "error-container": "#93000a",
+                      "secondary-container": "#224c57",
+                      "on-background": "#dfe2eb",
+                      "secondary-fixed-dim": "#a3cdd9",
+                      "inverse-surface": "#dfe2eb",
+                      "on-secondary-container": "#92bcc8",
+                      "tertiary-container": "#ffb14f",
+                      "surface-tint": "#56d6f2",
+                      "on-error-container": "#ffdad6",
+                      "tertiary": "#ffd6aa",
+                      "outline-variant": "#3d494c",
+                      "on-tertiary-container": "#714500",
+                      "on-surface-variant": "#bcc9cd",
+                      "surface-bright": "#353940",
+                      "on-primary-fixed-variant": "#004e5c",
+                      "primary-fixed": "#aaedff",
+                      "on-surface": "#dfe2eb",
+                      "inverse-primary": "#006879",
+                      "on-secondary-fixed": "#001f26",
+                      "tertiary-fixed": "#ffddb9",
+                      "on-tertiary": "#482a00",
+                      "surface-container-lowest": "#0a0e14",
+                      "background": "#10141a",
+                      "surface-container-highest": "#31353c",
+                      "surface-container-low": "#181c22",
+                      "surface": "#10141a",
+                      "on-secondary": "#03363f",
+                      "surface-container": "#1c2026",
+                      "error": "#ffb4ab",
+                      "on-tertiary-fixed": "#2b1700",
+                      "primary-container": "#4fd1ed",
+                      "outline": "#869397",
+                      "primary-fixed-dim": "#56d6f2",
+                      "on-primary-fixed": "#001f26",
+                      "on-primary": "#003640",
+                      "primary": "#96eaff",
+                      "surface-dim": "#10141a",
+                      "on-tertiary-fixed-variant": "#663e00",
+                      "surface-variant": "#31353c",
+                      "on-secondary-fixed-variant": "#224c57",
+                      "secondary": "#a3cdd9",
+                      "tertiary-fixed-dim": "#ffb964",
+                      "on-primary-container": "#005766",
+                      "on-error": "#690005",
+                      "surface-container-high": "#262a31",
+                      "inverse-on-surface": "#2d3137",
+                      "secondary-fixed": "#bfeaf6"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "fontFamily": {
+                      "headline": ["Space Grotesk"],
+                      "body": ["Inter"],
+                      "label": ["Space Grotesk"]
+              }
+            },
+          },
+        }
+      </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .signature-line {
+            height: 2px;
+            background-color: #4FD1ED;
+            margin-top: 8px;
+            width: 60px;
+        }
+        .industrial-pattern {
+            background-image: linear-gradient(45deg, rgba(79, 209, 237, 0.05) 25%, transparent 25%, transparent 50%, rgba(79, 209, 237, 0.05) 50%, rgba(79, 209, 237, 0.05) 75%, transparent 75%, transparent);
+            background-size: 20px 20px;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body">
+<!-- Top Navigation Bar -->
+<nav class="bg-[#10141a]/60 backdrop-blur-xl docked full-width top-0 sticky z-50 flex justify-between items-center w-full px-8 py-4 max-w-full mx-auto shadow-[0_40px_60px_-15px_rgba(223,226,235,0.06)]">
+<div class="text-2xl font-bold uppercase text-[#dfe2eb] tracking-tighter font-headline">VENTILOAR</div>
+<div class="hidden md:flex gap-8 items-center">
+<a class="text-[#dfe2eb] hover:text-[#96eaff] transition-colors font-headline text-sm font-bold uppercase tracking-wider" href="#">Início</a>
+<a class="text-[#4FD1ED] border-b-2 border-[#4FD1ED] pb-1 font-bold font-headline text-sm uppercase tracking-wider" href="#">Produto</a>
+<a class="text-[#dfe2eb] hover:text-[#96eaff] transition-colors font-headline text-sm font-bold uppercase tracking-wider" href="#">Loja</a>
+<a class="text-[#dfe2eb] hover:text-[#96eaff] transition-colors font-headline text-sm font-bold uppercase tracking-wider" href="#">Orçamento</a>
+<a class="text-[#dfe2eb] hover:text-[#96eaff] transition-colors font-headline text-sm font-bold uppercase tracking-wider" href="#">Quem Somos</a>
+<a class="text-[#dfe2eb] hover:text-[#96eaff] transition-colors font-headline text-sm font-bold uppercase tracking-wider" href="#">Sustentabilidade</a>
+<a class="text-[#dfe2eb] hover:text-[#96eaff] transition-colors font-headline text-sm font-bold uppercase tracking-wider" href="#">Parceiros</a>
+</div>
+<button class="bg-tertiary-container text-on-tertiary px-6 py-2 rounded-sm font-headline font-bold uppercase text-sm tracking-widest hover:bg-tertiary-fixed transition-all duration-300 active:scale-95">
+            GET STARTED
+        </button>
+</nav>
+<main class="min-h-screen">
+<!-- Hero Section -->
+<section class="relative h-[819px] flex items-center px-12 overflow-hidden bg-surface-container-low">
+<div class="absolute inset-0 z-0 opacity-40">
+<img alt="Industrial infrastructure" class="w-full h-full object-cover grayscale" data-alt="dramatic wide shot of a massive industrial warehouse interior with steel beams and cinematic blue architectural lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBOYcMlPitlKCCrPpwAIx63zU4i8O5D9ot8tfFU1JKdNTBNp3EwzrIwd5riEhLt1Mvu8ZKpjxa4WAVxa9VQ5FnmcS802nmZt-rmuxwA8tF6EpUg6apPtxZCzOX-nPM0z7ySJP2HU9KZT-bJcQ4ACgooD2O-nI3tarmo2_mtbi0kwcnmA6FVxcoeiFh8czQcl7fv9XrEviKYZmGawcPIJvMLVyAVTMSdXXsLk4rZ7v9qGt6LVYHyRnQ6gEtgwtexe6fV5kkKbSa-wIfO"/>
+<div class="absolute inset-0 bg-gradient-to-r from-background via-background/80 to-transparent"></div>
+</div>
+<div class="relative z-10 max-w-4xl">
+<span class="text-primary-container font-headline font-bold uppercase tracking-[0.3em] text-sm block mb-4">Precision Engineering</span>
+<h1 class="text-6xl md:text-8xl font-headline font-bold uppercase tracking-tighter leading-none mb-6">
+                    SISTEMA<br/><span class="text-primary">VENTILOAR</span>
+</h1>
+<div class="signature-line mb-8 w-32 h-1 bg-primary-container"></div>
+<p class="text-xl text-on-surface-variant max-w-2xl font-light leading-relaxed">
+                    A reengenharia total da movimentação de massas de ar. Desenvolvido para ambientes que exigem controle térmico absoluto e eficiência energética superior.
+                </p>
+</div>
+</section>
+<!-- Sistema 3F Technical Deep Dive -->
+<section class="py-24 px-12 bg-surface">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+<div>
+<h2 class="text-4xl font-headline font-bold uppercase tracking-tight">TRANSMISSÃO CENTRAL: SISTEMA 3F</h2>
+<div class="signature-line mb-10"></div>
+<div class="space-y-8">
+<div class="p-8 bg-surface-container-low border-l-4 border-primary-container relative overflow-hidden group">
+<div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+<span class="material-symbols-outlined text-6xl">settings_input_component</span>
+</div>
+<h3 class="text-xl font-headline font-bold uppercase mb-4">Fluxo de Força Fracionada</h3>
+<p class="text-on-surface-variant">Nosso exclusivo Sistema 3F elimina a perda por atrito comum em motores convencionais. Através de um núcleo de transmissão magnética, convertemos torque em deslocamento de ar com 98.4% de eficiência.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="bg-surface-container-high p-6 rounded-sm">
+<span class="material-symbols-outlined text-primary mb-4">analytics</span>
+<h4 class="font-headline font-bold uppercase text-sm mb-2">Monitoramento Ativo</h4>
+<p class="text-xs text-on-surface-variant">Sensores integrados que ajustam o ângulo de ataque das lâminas em tempo real.</p>
+</div>
+<div class="bg-surface-container-high p-6 rounded-sm">
+<span class="material-symbols-outlined text-primary mb-4">shield_with_heart</span>
+<h4 class="font-headline font-bold uppercase text-sm mb-2">Desgaste Zero</h4>
+<p class="text-xs text-on-surface-variant">Componentes em liga de titânio aeroespacial para ciclo de vida infinito.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Diagram Component (The Flow Monitor visual style) -->
+<div class="bg-surface-container-low p-1 rounded-sm industrial-pattern relative h-full min-h-[500px]">
+<div class="bg-surface-container-lowest h-full w-full p-12 flex flex-col justify-center items-center gap-12 relative overflow-hidden">
+<!-- Motor Node -->
+<div class="relative z-10 flex flex-col items-center">
+<div class="w-24 h-24 bg-surface-container-high rounded-sm border border-outline-variant/30 flex items-center justify-center shadow-lg">
+<span class="material-symbols-outlined text-primary text-4xl" style="font-variation-settings: 'FILL' 1;">precision_manufacturing</span>
+</div>
+<span class="mt-4 font-headline font-bold uppercase text-xs tracking-widest">Motor 3F-Core</span>
+</div>
+<!-- Connector Line -->
+<div class="w-px h-16 bg-gradient-to-b from-primary-container to-transparent relative">
+<div class="absolute top-0 -left-1 w-3 h-3 bg-primary-container rounded-full animate-pulse"></div>
+</div>
+<!-- Transmission Node -->
+<div class="relative z-10 flex flex-col items-center">
+<div class="w-32 h-20 bg-surface-container-high rounded-sm border border-outline-variant/30 flex items-center justify-center relative overflow-hidden">
+<div class="absolute inset-0 industrial-pattern opacity-10"></div>
+<span class="material-symbols-outlined text-primary text-4xl">settings</span>
+</div>
+<span class="mt-4 font-headline font-bold uppercase text-xs tracking-widest">Transmissão Sincronizada</span>
+</div>
+<!-- Connector Line -->
+<div class="w-px h-16 bg-gradient-to-b from-primary-container to-transparent"></div>
+<!-- Blades Node -->
+<div class="relative z-10 flex flex-col items-center">
+<div class="w-24 h-24 bg-primary-container/10 rounded-full border-2 border-primary-container border-dashed flex items-center justify-center">
+<span class="material-symbols-outlined text-primary-container text-4xl">air</span>
+</div>
+<span class="mt-4 font-headline font-bold uppercase text-xs tracking-widest">Sistema de Lâminas Aero</span>
+</div>
+<!-- Technical Decorative Specs -->
+<div class="absolute bottom-8 right-8 text-right font-mono text-[10px] text-outline">
+<p>REF_ID: VENT-990-X</p>
+<p>TOLERANCE: &lt; 0.001MM</p>
+<p>VOLTAGE: OPTIMIZED</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Technical Advantages Bento Grid -->
+<section class="py-24 px-12 bg-surface-container-low">
+<h2 class="text-4xl font-headline font-bold uppercase mb-2 tracking-tight">VANTAGENS TÉCNICAS</h2>
+<p class="text-on-surface-variant mb-4">Benchmarks superiores em todas as métricas industriais.</p>
+<div class="signature-line mb-12"></div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Large Advantage -->
+<div class="md:col-span-2 bg-surface-container-high p-10 flex flex-col justify-between min-h-[400px]">
+<div>
+<div class="flex items-center gap-4 mb-6">
+<div class="w-12 h-12 bg-secondary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-on-secondary-container">trending_up</span>
+</div>
+<h3 class="text-2xl font-headline font-bold uppercase">Eficiência Térmica Dinâmica</h3>
+</div>
+<p class="text-lg text-on-surface-variant leading-relaxed">Diferente de ventiladores convencionais que apenas movem o ar quente, o sistema Ventiloar utiliza compressão atmosférica leve para reduzir a temperatura percebida em até 8°C instantaneamente, otimizando o consumo de energia em 45%.</p>
+</div>
+<div class="mt-8 flex gap-12 border-t border-outline-variant/20 pt-8">
+<div>
+<span class="block text-3xl font-headline font-bold text-primary">45%</span>
+<span class="text-xs uppercase font-headline tracking-tighter opacity-60">Energy Saving</span>
+</div>
+<div>
+<span class="block text-3xl font-headline font-bold text-primary">-8°C</span>
+<span class="text-xs uppercase font-headline tracking-tighter opacity-60">Thermal Drop</span>
+</div>
+</div>
+</div>
+<!-- Vertical Advantage -->
+<div class="bg-surface-container-lowest p-10 flex flex-col justify-center border-t-2 border-tertiary-container">
+<span class="material-symbols-outlined text-tertiary text-5xl mb-6">noise_control_off</span>
+<h3 class="text-xl font-headline font-bold uppercase mb-4">Silent-Wing Tech</h3>
+<p class="text-on-surface-variant text-sm">Operação ultra-silenciosa abaixo de 35dB. Ideal para ambientes de alta concentração ou áreas comerciais de luxo.</p>
+</div>
+<!-- Scale Advantage -->
+<div class="bg-surface-container-high p-10 relative overflow-hidden group">
+<div class="relative z-10">
+<h3 class="text-xl font-headline font-bold uppercase mb-4">Escalabilidade Infinita</h3>
+<p class="text-on-surface-variant text-sm">De 2m² a complexos logísticos globais. Nossa arquitetura modular permite expansão sem perda de performance.</p>
+</div>
+<div class="absolute -bottom-10 -right-10 opacity-5 group-hover:opacity-10 transition-all duration-500">
+<span class="material-symbols-outlined text-[150px]">zoom_out_map</span>
+</div>
+</div>
+<!-- Customization Advantage -->
+<div class="bg-surface-container-high p-10 flex flex-col justify-between">
+<div>
+<h3 class="text-xl font-headline font-bold uppercase mb-4">Configuração de Lâminas</h3>
+<p class="text-on-surface-variant text-sm">Personalização de 2 a 10 lâminas por sistema, ajustadas conforme a densidade do ar local.</p>
+</div>
+<div class="mt-6 flex gap-2">
+<div class="h-1 flex-1 bg-primary-container"></div>
+<div class="h-1 flex-1 bg-primary-container/40"></div>
+<div class="h-1 flex-1 bg-primary-container/20"></div>
+</div>
+</div>
+<!-- Professional Installation -->
+<div class="bg-primary-container/5 p-10 border border-primary-container/20 flex items-center gap-6">
+<span class="material-symbols-outlined text-primary-container text-4xl">construction</span>
+<div>
+<h3 class="text-lg font-headline font-bold uppercase">Instalação Inclusa</h3>
+<p class="text-xs text-on-surface-variant uppercase tracking-widest mt-1">Engenharia Certificada Ventiloar</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Product Visual Grid -->
+<section class="py-24 px-12 grid grid-cols-1 md:grid-cols-2 gap-12 bg-surface">
+<div class="aspect-square bg-surface-container-high overflow-hidden">
+<img alt="Ventilation detail" class="w-full h-full object-cover grayscale hover:scale-110 transition-transform duration-700" data-alt="ultra close-up of high-tech turbine blades made of polished dark carbon fiber in a technical laboratory setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBt0r4Wf6HQzuwv4HdQNckmOvrPcLjlGORP6o3ryIaJoxvu8oI1P6KB5YtJxqoW44Qy8mMSZLSB-6-Li3xSvfezJ8UEaGEXtPgcWmzX_F-fUAZBCBdN0AyKH8LrBD9VpYSwQjAg62d4mDyG4qJsrCCFxmjpwEUvOE5ejjJlzB-g-aDyYxuJ9Hk-7aCYFjZAU89CjaSXzkEXg1un0Pu67JIwEK-6oqSxi-kdQ3UWAxdh0hbRTDNuv6AqNjvJ7uE7Y16kucAPOacINURX"/>
+</div>
+<div class="flex flex-col justify-center">
+<h2 class="text-3xl font-headline font-bold uppercase tracking-tight mb-4">ESTÉTICA INDUSTRIAL ELEVADA</h2>
+<div class="signature-line mb-8"></div>
+<p class="text-on-surface-variant text-lg mb-8">Não é apenas uma máquina; é uma peça de design. O acabamento em aço escovado e fibra de carbono integra-se perfeitamente a projetos arquitetônicos modernos e industriais.</p>
+<ul class="space-y-4">
+<li class="flex items-center gap-3">
+<span class="w-1.5 h-1.5 bg-primary-container rounded-full"></span>
+<span class="text-sm font-headline uppercase tracking-wider">Fibra de Carbono Estrutural</span>
+</li>
+<li class="flex items-center gap-3">
+<span class="w-1.5 h-1.5 bg-primary-container rounded-full"></span>
+<span class="text-sm font-headline uppercase tracking-wider">Chassi em Alumínio Naval</span>
+</li>
+<li class="flex items-center gap-3">
+<span class="w-1.5 h-1.5 bg-primary-container rounded-full"></span>
+<span class="text-sm font-headline uppercase tracking-wider">Iluminação LED de Status Oculta</span>
+</li>
+</ul>
+</div>
+</section>
+<!-- Final CTA Section -->
+<section class="py-32 px-12 bg-surface-container-lowest relative overflow-hidden">
+<div class="absolute inset-0 industrial-pattern opacity-[0.03]"></div>
+<div class="max-w-4xl mx-auto text-center relative z-10">
+<h2 class="text-5xl md:text-7xl font-headline font-bold uppercase mb-8 tracking-tighter">PRONTO PARA A <br/><span class="text-primary">EVOLUÇÃO ATMOSFÉRICA?</span></h2>
+<p class="text-on-surface-variant text-xl mb-12 max-w-2xl mx-auto">Consulte nossos engenheiros para um mapeamento térmico gratuito do seu espaço e descubra o potencial do Sistema Ventiloar.</p>
+<button class="bg-tertiary-container text-on-tertiary px-12 py-5 rounded-sm font-headline font-bold uppercase text-lg tracking-widest hover:bg-tertiary-fixed transition-all duration-300 active:scale-95 shadow-[0_20px_40px_rgba(255,177,79,0.15)]">
+                    Solicitar Orçamento
+                </button>
+<div class="mt-16 flex justify-center gap-12 text-xs font-headline uppercase tracking-[0.2em] opacity-40">
+<span>Performance Garantida</span>
+<span>•</span>
+<span>Suporte 24/7</span>
+<span>•</span>
+<span>Global Delivery</span>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-[#0a0e14] w-full border-t border-[#3d494c]/15">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-12 px-12 py-16 w-full">
+<div class="md:col-span-1">
+<div class="text-xl font-bold text-[#dfe2eb] uppercase font-headline mb-6">VENTILOAR</div>
+<p class="text-sm text-[#dfe2eb]/60 leading-relaxed font-sans">PRECISION ATMOSPHERIC ENGINEERING. Redefinindo o fluxo de ar industrial através de tecnologia de ponta e eficiência inabalável.</p>
+</div>
+<div>
+<h4 class="font-bold uppercase text-xs font-['Space_Grotesk'] text-[#4FD1ED] mb-6 tracking-widest">Navegação</h4>
+<ul class="space-y-4">
+<li><a class="text-sm font-sans text-[#dfe2eb]/60 hover:text-[#96eaff] underline decoration-[#4FD1ED] underline-offset-4 transition-all" href="#">Início</a></li>
+<li><a class="text-sm font-sans text-[#4FD1ED] underline decoration-[#4FD1ED] underline-offset-4" href="#">Produto</a></li>
+<li><a class="text-sm font-sans text-[#dfe2eb]/60 hover:text-[#96eaff] transition-all" href="#">Loja</a></li>
+<li><a class="text-sm font-sans text-[#dfe2eb]/60 hover:text-[#96eaff] transition-all" href="#">Orçamento</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold uppercase text-xs font-['Space_Grotesk'] text-[#4FD1ED] mb-6 tracking-widest">Legal</h4>
+<ul class="space-y-4">
+<li><a class="text-sm font-sans text-[#dfe2eb]/60 hover:text-[#96eaff] transition-all" href="#">Privacidade</a></li>
+<li><a class="text-sm font-sans text-[#dfe2eb]/60 hover:text-[#96eaff] transition-all" href="#">Termos de Uso</a></li>
+<li><a class="text-sm font-sans text-[#dfe2eb]/60 hover:text-[#96eaff] transition-all" href="#">Certificações</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold uppercase text-xs font-['Space_Grotesk'] text-[#4FD1ED] mb-6 tracking-widest">Contato</h4>
+<p class="text-sm text-[#dfe2eb]/60 font-sans mb-4">Rua da Engenharia, 1000<br/>São Paulo, SP - Brasil</p>
+<p class="text-sm text-[#dfe2eb]/60 font-sans">contato@ventiloar.com.br</p>
+</div>
+</div>
+<div class="px-12 py-8 border-t border-[#3d494c]/10 text-center">
+<span class="text-[10px] font-headline uppercase tracking-widest text-[#dfe2eb]/40">© 2024 VENTILOAR PRECISION ATMOSPHERIC ENGINEERING. ALL RIGHTS RESERVED.</span>
+</div>
+</footer>
+</body></html>

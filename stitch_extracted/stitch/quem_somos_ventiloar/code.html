@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "error-container": "#93000a",
+                    "secondary-container": "#224c57",
+                    "on-background": "#dfe2eb",
+                    "secondary-fixed-dim": "#a3cdd9",
+                    "inverse-surface": "#dfe2eb",
+                    "on-secondary-container": "#92bcc8",
+                    "tertiary-container": "#ffb14f",
+                    "surface-tint": "#56d6f2",
+                    "on-error-container": "#ffdad6",
+                    "tertiary": "#ffd6aa",
+                    "outline-variant": "#3d494c",
+                    "on-tertiary-container": "#714500",
+                    "on-surface-variant": "#bcc9cd",
+                    "surface-bright": "#353940",
+                    "on-primary-fixed-variant": "#004e5c",
+                    "primary-fixed": "#aaedff",
+                    "on-surface": "#dfe2eb",
+                    "inverse-primary": "#006879",
+                    "on-secondary-fixed": "#001f26",
+                    "tertiary-fixed": "#ffddb9",
+                    "on-tertiary": "#482a00",
+                    "surface-container-lowest": "#0a0e14",
+                    "background": "#10141a",
+                    "surface-container-highest": "#31353c",
+                    "surface-container-low": "#181c22",
+                    "surface": "#10141a",
+                    "on-secondary": "#03363f",
+                    "surface-container": "#1c2026",
+                    "error": "#ffb4ab",
+                    "on-tertiary-fixed": "#2b1700",
+                    "primary-container": "#4fd1ed",
+                    "outline": "#869397",
+                    "primary-fixed-dim": "#56d6f2",
+                    "on-primary-fixed": "#001f26",
+                    "on-primary": "#003640",
+                    "primary": "#96eaff",
+                    "surface-dim": "#10141a",
+                    "on-tertiary-fixed-variant": "#663e00",
+                    "surface-variant": "#31353c",
+                    "on-secondary-fixed-variant": "#224c57",
+                    "secondary": "#a3cdd9",
+                    "tertiary-fixed-dim": "#ffb964",
+                    "on-primary-container": "#005766",
+                    "on-error": "#690005",
+                    "surface-container-high": "#262a31",
+                    "inverse-on-surface": "#2d3137",
+                    "secondary-fixed": "#bfeaf6"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Space Grotesk"],
+                    "body": ["Inter"],
+                    "label": ["Space Grotesk"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      .industrial-pattern {
+        background-image: radial-gradient(circle at 2px 2px, #3d494c 1px, transparent 0);
+        background-size: 24px 24px;
+        opacity: 0.1;
+      }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body selection:bg-primary-container selection:text-on-primary-container">
+<!-- Top Navigation Bar -->
+<header class="bg-[#10141a]/60 backdrop-blur-xl docked full-width top-0 sticky z-50 shadow-[0_40px_60px_-15px_rgba(223,226,235,0.06)]">
+<nav class="flex justify-between items-center w-full px-8 py-4 max-w-full mx-auto">
+<div class="text-2xl font-bold uppercase text-[#dfe2eb] tracking-tighter font-headline">
+                VENTILOAR
+            </div>
+<div class="hidden md:flex items-center gap-8">
+<a class="text-[#dfe2eb] hover:text-[#96eaff] transition-colors font-label uppercase tracking-wider text-sm" href="#">Início</a>
+<a class="text-[#dfe2eb] hover:text-[#96eaff] transition-colors font-label uppercase tracking-wider text-sm" href="#">Produto</a>
+<a class="text-[#dfe2eb] hover:text-[#96eaff] transition-colors font-label uppercase tracking-wider text-sm" href="#">Loja</a>
+<a class="text-[#dfe2eb] hover:text-[#96eaff] transition-colors font-label uppercase tracking-wider text-sm" href="#">Orçamento</a>
+<a class="text-[#4FD1ED] border-b-2 border-[#4FD1ED] pb-1 font-bold font-label uppercase tracking-wider text-sm" href="#">Quem Somos</a>
+<a class="text-[#dfe2eb] hover:text-[#96eaff] transition-colors font-label uppercase tracking-wider text-sm" href="#">Sustentabilidade</a>
+<a class="text-[#dfe2eb] hover:text-[#96eaff] transition-colors font-label uppercase tracking-wider text-sm" href="#">Parceiros</a>
+</div>
+<button class="bg-tertiary-container text-on-tertiary px-6 py-2 rounded-sm font-label font-bold uppercase tracking-widest text-xs hover:bg-[#ffc27a] active:scale-95 transition-all duration-300">
+                GET STARTED
+            </button>
+</nav>
+</header>
+<main class="relative">
+<!-- Hero Section / Asymmetric Intro -->
+<section class="relative min-h-[614px] flex items-center px-8 md:px-16 py-20 overflow-hidden">
+<div class="industrial-pattern absolute inset-0 z-0"></div>
+<div class="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
+<div class="lg:col-span-7">
+<h1 class="font-headline font-bold text-5xl md:text-7xl uppercase tracking-tighter mb-4 leading-none">
+                        PRECISION <br/> <span class="text-primary">ATMOSPHERIC</span> <br/> ENGINEERING
+                    </h1>
+<div class="w-32 h-0.5 bg-primary-container mb-8"></div>
+<p class="text-xl text-on-surface-variant max-w-xl leading-relaxed">
+                        Nascida do chão de fábrica, forjada pela experiência técnica e movida pela busca incessante por eficiência térmica real no coração do Ceará.
+                    </p>
+</div>
+<div class="lg:col-span-5 relative">
+<div class="bg-surface-container-high p-4 rounded-lg transform rotate-2 shadow-2xl">
+<img alt="Founder Photo" class="w-full h-auto rounded grayscale hover:grayscale-0 transition-all duration-500" data-alt="Technical founder in industrial setting, wearing safety gear, working on complex mechanical ventilation system blueprints with soft blue dramatic lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBTUuLttc03UxdxCpSweXtqc1REm0hqWQmXtzktrxwH_Uoqx_ipX2smUuTvfCilaGjWweqrEbzSxF0dJ6wKZf-Ikf3COBC9DaBIqRvhrc4ry_hYV9urdr45T8ubfESmhslmzoUbXQvh6I9Q2_Bmda5BAKJqS4NsCh1VtN2MvUUg8pkUe-VMHMOgbGPFuDj5KSSiLJmIcEkanPD9cnDhjtPuc1-IMVAmMleC9j340QWMwJbV-AGqbe5dMpUZ6zEx6qUqWNWBWXcDvSHo"/>
+<div class="mt-4 flex items-center justify-between">
+<div>
+<p class="font-headline font-bold text-sm uppercase">Fundador &amp; CTO</p>
+<p class="text-primary-container text-xs">20 Anos de Engenharia Prática</p>
+</div>
+<span class="material-symbols-outlined text-primary-container">verified</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- The Founder's Journey (Bento Grid Style) -->
+<section class="py-24 px-8 md:px-16 bg-surface-container-low">
+<div class="max-w-7xl mx-auto">
+<h2 class="font-headline font-bold text-3xl uppercase tracking-wider mb-2">A História por trás do Ar</h2>
+<div class="w-16 h-0.5 bg-primary-container mb-12"></div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Card 1: Origins -->
+<div class="bg-surface-container-high p-8 flex flex-col justify-between border-l-4 border-primary/20">
+<div>
+<span class="material-symbols-outlined text-primary mb-4 text-4xl">electric_bolt</span>
+<h3 class="font-headline font-bold text-xl uppercase mb-4">A Base Técnica</h3>
+<p class="text-on-surface-variant leading-relaxed">
+                                Foram 20 anos como eletricista e técnico industrial. Cada kilowatt economizado era uma vitória pessoal. A Ventiloar não nasceu em um escritório, mas resolvendo falhas críticas em grandes motores.
+                            </p>
+</div>
+</div>
+<!-- Card 2: The Leap -->
+<div class="bg-surface-container-lowest p-8 flex flex-col justify-between relative overflow-hidden">
+<div class="absolute -right-4 -bottom-4 opacity-5">
+<span class="material-symbols-outlined text-on-surface text-9xl">savings</span>
+</div>
+<div>
+<span class="material-symbols-outlined text-tertiary mb-4 text-4xl">payments</span>
+<h3 class="font-headline font-bold text-xl uppercase mb-4">O Risco Calculado</h3>
+<p class="text-on-surface-variant leading-relaxed">
+                                O início foi humilde e visceral: R$ 5.000 emprestados da própria esposa para construir os primeiros protótipos em uma garagem. Um investimento em uma visão que muitos não viam, mas que o calor do Ceará exigia.
+                            </p>
+</div>
+</div>
+<!-- Card 3: The Epiphany -->
+<div class="bg-surface-container-high p-8 flex flex-col justify-between border-r-4 border-primary-container/20">
+<div>
+<span class="material-symbols-outlined text-primary-container mb-4 text-4xl">lightbulb</span>
+<h3 class="font-headline font-bold text-xl uppercase mb-4">O Ponto de Virada</h3>
+<p class="text-on-surface-variant leading-relaxed">
+                                CearaTech Summit 2024. Foi ali, cercado por inovação, que a Ventiloar deixou de ser um projeto de garagem para se tornar uma solução sistêmica de engenharia atmosférica de precisão.
+                            </p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Mission & Vision (Tonal Layering Layout) -->
+<section class="py-24 px-8 md:px-16 flex flex-col lg:flex-row gap-12 max-w-7xl mx-auto items-stretch">
+<div class="flex-1 bg-surface-container-high p-12 relative">
+<div class="absolute top-0 left-0 w-2 h-full bg-primary-container"></div>
+<h2 class="font-headline font-bold text-4xl uppercase mb-6 tracking-tighter">Nossa Missão</h2>
+<p class="text-lg text-on-surface leading-relaxed italic">
+                    "Entregar eficiência energética real para as empresas do Ceará através de soluções de ventilação que desafiam os limites da termodinâmica industrial convencional."
+                </p>
+</div>
+<div class="flex-1 bg-surface-container-lowest p-12 border border-outline-variant/15">
+<h2 class="font-headline font-bold text-4xl uppercase mb-6 tracking-tighter">Nossa Visão</h2>
+<p class="text-lg text-on-surface leading-relaxed">
+                    Tornar-se a referência nacional em engenharia de ventilação sustentável, provando que a alta performance industrial e a responsabilidade ambiental são engrenagens do mesmo motor.
+                </p>
+<div class="mt-8 flex gap-4">
+<div class="h-1 flex-1 bg-secondary-container"></div>
+<div class="h-1 flex-1 bg-primary-container/40"></div>
+<div class="h-1 flex-1 bg-primary-container"></div>
+</div>
+</div>
+</section>
+<!-- Timeline (Technical/Asymmetric) -->
+<section class="py-24 px-8 md:px-16 bg-surface">
+<div class="max-w-5xl mx-auto">
+<div class="flex items-center gap-4 mb-16">
+<div class="h-[1px] flex-grow bg-outline-variant/30"></div>
+<h2 class="font-headline font-bold text-2xl uppercase tracking-[0.2em] text-center">Engineered Evolution</h2>
+<div class="h-[1px] flex-grow bg-outline-variant/30"></div>
+</div>
+<div class="space-y-12 relative">
+<!-- Timeline Line -->
+<div class="absolute left-[11px] top-0 bottom-0 w-0.5 bg-outline-variant/20 hidden md:block"></div>
+<!-- Stage 1 -->
+<div class="flex flex-col md:flex-row gap-8 relative">
+<div class="w-6 h-6 rounded-full bg-primary-container border-4 border-surface z-10 flex-shrink-0 md:mt-1"></div>
+<div>
+<span class="text-xs font-headline font-bold text-primary-container uppercase tracking-widest block mb-2">2004 — 2023</span>
+<h4 class="text-xl font-headline font-bold uppercase mb-2">Experiência Prática</h4>
+<p class="text-on-surface-variant max-w-2xl">Duas décadas operando sistemas complexos de energia e climatização industrial em larga escala.</p>
+</div>
+</div>
+<!-- Stage 2 -->
+<div class="flex flex-col md:flex-row gap-8 relative">
+<div class="w-6 h-6 rounded-full bg-primary-container border-4 border-surface z-10 flex-shrink-0 md:mt-1"></div>
+<div>
+<span class="text-xs font-headline font-bold text-primary-container uppercase tracking-widest block mb-2">Jan 2024</span>
+<h4 class="text-xl font-headline font-bold uppercase mb-2">Protótipos Alpha</h4>
+<p class="text-on-surface-variant max-w-2xl">Desenvolvimento das primeiras turbinas de fluxo axial com materiais compósitos de alta resistência.</p>
+</div>
+</div>
+<!-- Stage 3 -->
+<div class="flex flex-col md:flex-row gap-8 relative">
+<div class="w-6 h-6 rounded-full bg-primary-container border-4 border-surface z-10 flex-shrink-0 md:mt-1"></div>
+<div>
+<span class="text-xs font-headline font-bold text-primary-container uppercase tracking-widest block mb-2">Mai 2024</span>
+<h4 class="text-xl font-headline font-bold uppercase mb-2">CearaTech Summit</h4>
+<p class="text-on-surface-variant max-w-2xl">Reconhecimento do modelo de negócio e validação técnica por especialistas do setor elétrico.</p>
+</div>
+</div>
+<!-- Stage 4 -->
+<div class="flex flex-col md:flex-row gap-8 relative">
+<div class="w-6 h-6 rounded-full bg-tertiary-container border-4 border-surface z-10 flex-shrink-0 md:mt-1"></div>
+<div>
+<span class="text-xs font-headline font-bold text-tertiary-container uppercase tracking-widest block mb-2">Set 2024</span>
+<h4 class="text-xl font-headline font-bold uppercase mb-2">Aprovação TECNOVA III</h4>
+<p class="text-on-surface-variant max-w-2xl">Aceleração via fomento tecnológico para refinamento de aerodinâmica e IoT.</p>
+</div>
+</div>
+<!-- Stage 5 -->
+<div class="flex flex-col md:flex-row gap-8 relative">
+<div class="w-6 h-6 rounded-full bg-primary border-4 border-surface z-10 flex-shrink-0 md:mt-1"></div>
+<div>
+<span class="text-xs font-headline font-bold text-primary uppercase tracking-widest block mb-2">Presente</span>
+<h4 class="text-xl font-headline font-bold uppercase mb-2">Lançamento Comercial</h4>
+<p class="text-on-surface-variant max-w-2xl">Abertura de parcerias para indústrias que buscam o estado da arte em climatização.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- The Flow Monitor (CTA Section) -->
+<section class="py-24 px-8 md:px-16">
+<div class="max-w-7xl mx-auto bg-surface-container-high rounded-xl overflow-hidden relative border border-outline-variant/10">
+<div class="absolute inset-0 industrial-pattern pointer-events-none"></div>
+<div class="relative z-10 p-12 md:p-20 flex flex-col items-center text-center">
+<div class="mb-6 flex gap-1">
+<div class="w-1 h-8 bg-primary animate-pulse"></div>
+<div class="w-1 h-8 bg-primary/60 animate-pulse delay-75"></div>
+<div class="w-1 h-8 bg-primary/30 animate-pulse delay-150"></div>
+</div>
+<h2 class="font-headline font-bold text-4xl md:text-5xl uppercase tracking-tighter mb-6">Pronto para Otimizar seu Clima?</h2>
+<p class="text-on-surface-variant text-lg max-w-2xl mb-10">
+                        Nossa engenharia é baseada em dados e na realidade do chão de fábrica. Fale conosco para um diagnóstico térmico preciso.
+                    </p>
+<button class="bg-tertiary-container text-on-tertiary px-10 py-4 rounded-sm font-label font-bold uppercase tracking-widest text-sm hover:scale-105 active:scale-95 transition-all">
+                        Solicitar Estudo Técnico
+                    </button>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-[#0a0e14] border-t border-[#3d494c]/15">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-12 px-12 py-16 w-full">
+<div class="md:col-span-1">
+<div class="text-xl font-bold text-[#dfe2eb] uppercase mb-6 font-headline tracking-tighter">VENTILOAR</div>
+<p class="text-sm text-[#dfe2eb]/60 leading-relaxed font-sans">
+                    Precision Atmospheric Engineering. Soluções térmicas de alta performance para a indústria moderna.
+                </p>
+</div>
+<div class="md:col-span-1 flex flex-col gap-4">
+<h4 class="font-headline font-bold uppercase text-xs text-[#4FD1ED] tracking-widest mb-2">Navegação</h4>
+<a class="text-[#dfe2eb]/60 hover:text-[#96eaff] text-sm underline decoration-[#4FD1ED] underline-offset-4" href="#">Início</a>
+<a class="text-[#dfe2eb]/60 hover:text-[#96eaff] text-sm" href="#">Produto</a>
+<a class="text-[#dfe2eb]/60 hover:text-[#96eaff] text-sm" href="#">Quem Somos</a>
+</div>
+<div class="md:col-span-1 flex flex-col gap-4">
+<h4 class="font-headline font-bold uppercase text-xs text-[#4FD1ED] tracking-widest mb-2">Comercial</h4>
+<a class="text-[#dfe2eb]/60 hover:text-[#96eaff] text-sm" href="#">Loja</a>
+<a class="text-[#dfe2eb]/60 hover:text-[#96eaff] text-sm" href="#">Orçamento</a>
+<a class="text-[#dfe2eb]/60 hover:text-[#96eaff] text-sm" href="#">Parceiros</a>
+</div>
+<div class="md:col-span-1 flex flex-col gap-4">
+<h4 class="font-headline font-bold uppercase text-xs text-[#4FD1ED] tracking-widest mb-2">Contato</h4>
+<p class="text-sm text-[#dfe2eb]/60 font-sans">Fortaleza, CE - Brasil</p>
+<div class="flex gap-4 mt-2">
+<span class="material-symbols-outlined text-[#4FD1ED] opacity-80 hover:opacity-100 transition-opacity cursor-pointer">alternate_email</span>
+<span class="material-symbols-outlined text-[#4FD1ED] opacity-80 hover:opacity-100 transition-opacity cursor-pointer">phone_in_talk</span>
+</div>
+</div>
+</div>
+<div class="px-12 py-8 border-t border-[#3d494c]/10 text-center">
+<p class="text-[10px] font-headline font-bold uppercase text-[#dfe2eb]/40 tracking-[0.3em]">
+                © 2024 VENTILOAR PRECISION ATMOSPHERIC ENGINEERING. ALL RIGHTS RESERVED.
+            </p>
+</div>
+</footer>
+</body></html>

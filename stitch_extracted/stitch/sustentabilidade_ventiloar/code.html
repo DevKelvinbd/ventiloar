@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Space+Grotesk:wght@500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "error-container": "#93000a",
+                    "secondary-container": "#224c57",
+                    "on-background": "#dfe2eb",
+                    "secondary-fixed-dim": "#a3cdd9",
+                    "inverse-surface": "#dfe2eb",
+                    "on-secondary-container": "#92bcc8",
+                    "tertiary-container": "#ffb14f",
+                    "surface-tint": "#56d6f2",
+                    "on-error-container": "#ffdad6",
+                    "tertiary": "#ffd6aa",
+                    "outline-variant": "#3d494c",
+                    "on-tertiary-container": "#714500",
+                    "on-surface-variant": "#bcc9cd",
+                    "surface-bright": "#353940",
+                    "on-primary-fixed-variant": "#004e5c",
+                    "primary-fixed": "#aaedff",
+                    "on-surface": "#dfe2eb",
+                    "inverse-primary": "#006879",
+                    "on-secondary-fixed": "#001f26",
+                    "tertiary-fixed": "#ffddb9",
+                    "on-tertiary": "#482a00",
+                    "surface-container-lowest": "#0a0e14",
+                    "background": "#10141a",
+                    "surface-container-highest": "#31353c",
+                    "surface-container-low": "#181c22",
+                    "surface": "#10141a",
+                    "on-secondary": "#03363f",
+                    "surface-container": "#1c2026",
+                    "error": "#ffb4ab",
+                    "on-tertiary-fixed": "#2b1700",
+                    "primary-container": "#4fd1ed",
+                    "outline": "#869397",
+                    "primary-fixed-dim": "#56d6f2",
+                    "on-primary-fixed": "#001f26",
+                    "on-primary": "#003640",
+                    "primary": "#96eaff",
+                    "surface-dim": "#10141a",
+                    "on-tertiary-fixed-variant": "#663e00",
+                    "surface-variant": "#31353c",
+                    "on-secondary-fixed-variant": "#224c57",
+                    "secondary": "#a3cdd9",
+                    "tertiary-fixed-dim": "#ffb964",
+                    "on-primary-container": "#005766",
+                    "on-error": "#690005",
+                    "surface-container-high": "#262a31",
+                    "inverse-on-surface": "#2d3137",
+                    "secondary-fixed": "#bfeaf6"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Space Grotesk"],
+                    "body": ["Inter"],
+                    "label": ["Space Grotesk"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            background: rgba(24, 28, 34, 0.6);
+            backdrop-filter: blur(24px);
+        }
+        .signature-line {
+            width: 80px;
+            height: 2px;
+            background-color: #4FD1ED;
+            margin-top: 8px;
+        }
+        .industrial-pattern {
+            background-image: linear-gradient(45deg, #1c2026 12.5%, transparent 12.5%, transparent 50%, #1c2026 50%, #1c2026 62.5%, transparent 62.5%, transparent 100%);
+            background-size: 8px 8px;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopNavBar -->
+<nav class="bg-[#10141a]/60 backdrop-blur-xl docked full-width top-0 sticky z-50 shadow-[0_40px_60px_-15px_rgba(223,226,235,0.06)]">
+<div class="flex justify-between items-center w-full px-8 py-4 max-w-full mx-auto">
+<div class="text-2xl font-bold uppercase text-[#dfe2eb] tracking-tighter font-headline">
+                VENTILOAR
+            </div>
+<div class="hidden md:flex space-x-8 items-center">
+<a class="text-[#dfe2eb] hover:text-[#96eaff] transition-colors font-headline text-sm uppercase tracking-wider" href="#">Início</a>
+<a class="text-[#dfe2eb] hover:text-[#96eaff] transition-colors font-headline text-sm uppercase tracking-wider" href="#">Produto</a>
+<a class="text-[#dfe2eb] hover:text-[#96eaff] transition-colors font-headline text-sm uppercase tracking-wider" href="#">Loja</a>
+<a class="text-[#dfe2eb] hover:text-[#96eaff] transition-colors font-headline text-sm uppercase tracking-wider" href="#">Orçamento</a>
+<a class="text-[#dfe2eb] hover:text-[#96eaff] transition-colors font-headline text-sm uppercase tracking-wider" href="#">Quem Somos</a>
+<a class="text-[#4FD1ED] border-b-2 border-[#4FD1ED] pb-1 font-bold font-headline text-sm uppercase tracking-wider" href="#">Sustentabilidade</a>
+<a class="text-[#dfe2eb] hover:text-[#96eaff] transition-colors font-headline text-sm uppercase tracking-wider" href="#">Parceiros</a>
+</div>
+<button class="bg-tertiary-container text-on-tertiary px-6 py-2 rounded-sm font-headline font-bold text-xs tracking-widest hover:scale-95 transition-all duration-150">
+                GET STARTED
+            </button>
+</div>
+</nav>
+<main class="relative">
+<!-- Hero Section -->
+<section class="relative h-[614px] flex items-center overflow-hidden">
+<div class="absolute inset-0 z-0">
+<img class="w-full h-full object-cover opacity-40 grayscale contrast-125" data-alt="Technical close-up of a modern wind turbine blade against a deep twilight sky with sharp architectural lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCSlBq-rQhQd9_sV0AxhAWQUpg-aGgiTKDurGlSC6uP-5zO8o-_NzdEFdx7iwWMleTnifL-ZbAhSsqne-uSXF0IS4fOkqdl3RTAFHnMaYredi7YEyvbenZFVINC-dPdZClRfpj6NC_P7ZEdnLmRBwI9vbuhRhGT4FWoZMYJrfAJmP_nzlWgxQhPSHQZ8n6cKHx40kYELBEaVq1thcMnKXDCw9r5bfBhhsW-Pohh7sGwbz9DaRs7rghGYIaj97YD5EFebNbR7jghLdKq"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent"></div>
+</div>
+<div class="container mx-auto px-8 relative z-10">
+<div class="max-w-4xl">
+<h1 class="text-6xl md:text-8xl font-headline font-bold uppercase tracking-tighter leading-none mb-4">
+                        CRÉDITOS DE<br/><span class="text-primary">CARBONO</span>
+</h1>
+<div class="signature-line"></div>
+<p class="mt-8 text-xl text-on-surface-variant max-w-2xl leading-relaxed">
+                        Transformando eficiência termodinâmica em ativos ambientais. A precisão técnica da Ventiloar reduz o consumo global de energia em até 80%, gerando um impacto direto na pegada de CO2 industrial.
+                    </p>
+</div>
+</div>
+</section>
+<!-- Metrics & Stats (Asymmetric Layout) -->
+<section class="py-24 bg-surface-container-low">
+<div class="container mx-auto px-8">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-8">
+<div class="md:col-span-7 bg-surface-container-high p-12 relative overflow-hidden">
+<div class="absolute top-0 right-0 p-4 opacity-10">
+<span class="material-symbols-outlined text-9xl">eco</span>
+</div>
+<h2 class="text-3xl font-headline font-bold uppercase tracking-wider mb-6">Eficiência Operacional</h2>
+<div class="flex items-baseline gap-4 mb-8">
+<span class="text-8xl font-headline font-bold text-primary">80%</span>
+<span class="text-xl text-on-secondary-container uppercase font-headline">Energy Saving</span>
+</div>
+<p class="text-on-surface-variant leading-relaxed max-w-lg mb-8">
+                            Cada watt economizado é uma molécula de CO2 a menos na atmosfera. Nossos sistemas de ventilação de precisão não apenas otimizam o fluxo de ar, mas redefinem a viabilidade econômica da sustentabilidade industrial.
+                        </p>
+<div class="flex items-center gap-4 py-4 px-6 bg-surface-container-lowest inline-flex">
+<div class="w-3 h-3 rounded-full bg-primary-container animate-pulse shadow-[0_0_10px_#4fd1ed]"></div>
+<span class="font-headline text-xs font-bold uppercase tracking-widest text-primary">Impacto Mensurável em Tempo Real</span>
+</div>
+</div>
+<div class="md:col-span-5 grid grid-rows-2 gap-8">
+<div class="bg-surface-container-highest p-8 border-l-4 border-tertiary-container">
+<h3 class="font-headline font-bold uppercase text-sm tracking-widest mb-2 text-tertiary">Status da Certificação</h3>
+<div class="flex items-center gap-4 mt-4">
+<span class="material-symbols-outlined text-4xl text-tertiary">hourglass_top</span>
+<span class="text-2xl font-headline font-bold uppercase tracking-tight">Em Andamento</span>
+</div>
+<p class="mt-4 text-sm text-on-surface-variant italic">
+                                Auditando processos e metologias para conformidade com padrões globais de compensação.
+                            </p>
+</div>
+<div class="industrial-pattern p-8 bg-surface-container">
+<div class="glass-panel h-full p-6 flex flex-col justify-center">
+<span class="material-symbols-outlined text-primary mb-4">analytics</span>
+<p class="font-headline text-lg font-bold uppercase tracking-tight">Análise de Ciclo de Vida</p>
+<p class="text-xs text-on-surface-variant mt-2 leading-tight">Quantificação rigorosa de GEE baseada na ISO 14064.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Video Explainer Section -->
+<section class="py-24 bg-surface">
+<div class="container mx-auto px-8 flex flex-col md:flex-row items-center gap-16">
+<div class="w-full md:w-1/2 aspect-video bg-surface-container-lowest relative group cursor-pointer overflow-hidden ring-1 ring-outline-variant/15">
+<img class="w-full h-full object-cover opacity-50 group-hover:scale-105 transition-transform duration-700" data-alt="Candid atmospheric engineering laboratory interior with technical screens and laboratory equipment in soft focus" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBvBQpzPcqqj6GUuQb7J9rP2BJqug16LRcEAcFkTvBR1CQ4DR0dKomKk2ESOojZRJatIOpiNy-s1KPj9i_YUh5hgzA4JcbnTL8pKL_s9ZZQUhtn6ud08H_FZZ7S46EnKb2wkCCptueNEiVodvfl6LkMsr-pD4HQ-qj658NHLBHiTARj02cj80g8LN1wJfQMpC6kCDAtevUD-ij1Ym091nRT-KFB2Z4JCa5fo9ltHjlIetUOHswE1UeD6VN5t43U51wal2PvvYLUSkcZ"/>
+<div class="absolute inset-0 flex items-center justify-center">
+<div class="w-20 h-20 bg-primary-container rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-on-primary-container text-4xl" data-weight="fill">play_arrow</span>
+</div>
+</div>
+<div class="absolute bottom-0 left-0 p-6 bg-gradient-to-t from-background to-transparent w-full">
+<p class="font-headline text-xs font-bold uppercase tracking-[0.2em]">Assistir: O Futuro da Ventilação</p>
+</div>
+</div>
+<div class="w-full md:w-1/2">
+<h2 class="text-4xl font-headline font-bold uppercase tracking-tighter mb-4">Engenharia Atmosférica<br/>com Propósito</h2>
+<div class="signature-line mb-8"></div>
+<p class="text-on-surface-variant mb-6 leading-relaxed">
+                        Entenda como convertemos fluxo de ar em ativos financeiros sustentáveis. Nossa metodologia proprietária permite que empresas não apenas reduzam custos, mas participem ativamente do mercado global de carbono.
+                    </p>
+<ul class="space-y-4">
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-xl">check_circle</span>
+<span class="text-sm font-headline uppercase tracking-wide">Redução de Escopo 2</span>
+</li>
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-xl">check_circle</span>
+<span class="text-sm font-headline uppercase tracking-wide">Transparência via Blockchain</span>
+</li>
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-xl">check_circle</span>
+<span class="text-sm font-headline uppercase tracking-wide">Inovação em ESG</span>
+</li>
+</ul>
+</div>
+</div>
+</section>
+<!-- Certification Badges (The "Seeking" Section) -->
+<section class="py-24 bg-surface-container-lowest">
+<div class="container mx-auto px-8 text-center">
+<h2 class="text-sm font-headline font-bold text-outline uppercase tracking-[0.3em] mb-12">Certificações em Processo de Homologação</h2>
+<div class="grid grid-cols-2 md:grid-cols-5 gap-12 opacity-40 grayscale hover:grayscale-0 transition-all duration-500">
+<div class="flex flex-col items-center gap-4">
+<div class="w-20 h-20 flex items-center justify-center border border-outline-variant/30 font-headline font-bold text-xl">VCS</div>
+<span class="text-[10px] font-headline uppercase tracking-widest">Verra Standard</span>
+</div>
+<div class="flex flex-col items-center gap-4">
+<div class="w-20 h-20 flex items-center justify-center border border-outline-variant/30 font-headline font-bold text-xl">GOLD</div>
+<span class="text-[10px] font-headline uppercase tracking-widest">Gold Standard</span>
+</div>
+<div class="flex flex-col items-center gap-4">
+<div class="w-20 h-20 flex items-center justify-center border border-outline-variant/30 font-headline font-bold text-xl">MBRE</div>
+<span class="text-[10px] font-headline uppercase tracking-widest">Mercado Brasileiro</span>
+</div>
+<div class="flex flex-col items-center gap-4">
+<div class="w-20 h-20 flex items-center justify-center border border-outline-variant/30 font-headline font-bold text-xl">I-REC</div>
+<span class="text-[10px] font-headline uppercase tracking-widest">Energy Attribute</span>
+</div>
+<div class="flex flex-col items-center gap-4">
+<div class="w-20 h-20 flex items-center justify-center border border-outline-variant/30 font-headline font-bold text-xl">14064</div>
+<span class="text-[10px] font-headline uppercase tracking-widest">ISO Standard</span>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="py-32 relative overflow-hidden">
+<div class="absolute inset-0 industrial-pattern opacity-10"></div>
+<div class="container mx-auto px-8 relative z-10 text-center">
+<div class="max-w-3xl mx-auto">
+<h2 class="text-4xl md:text-5xl font-headline font-bold uppercase tracking-tight mb-8">Pronto para digitalizar seu impacto?</h2>
+<p class="text-on-surface-variant mb-12 text-lg">Inicie sua jornada rumo ao Net Zero com engenharia de precisão e retorno financeiro mensurável.</p>
+<button class="bg-primary text-on-primary px-10 py-5 rounded-sm font-headline font-bold uppercase tracking-widest hover:scale-105 transition-all shadow-[0_20px_40px_-10px_rgba(150,234,255,0.3)]">
+                        Quero saber mais sobre o impacto ambiental do meu projeto
+                    </button>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-[#0a0e14] w-full border-t border-[#3d494c]/15">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-12 px-12 py-16 w-full">
+<div class="space-y-6">
+<div class="text-xl font-bold text-[#dfe2eb] uppercase font-headline">VENTILOAR</div>
+<p class="text-xs text-on-surface-variant leading-relaxed">Pioneiros em engenharia atmosférica de precisão. Onde a termodinâmica encontra a sustentabilidade radical.</p>
+</div>
+<div>
+<h4 class="font-headline font-bold uppercase text-xs tracking-widest mb-6 text-primary">Navegação</h4>
+<ul class="space-y-3">
+<li><a class="text-[#dfe2eb]/60 hover:text-[#96eaff] text-sm transition-colors" href="#">Início</a></li>
+<li><a class="text-[#dfe2eb]/60 hover:text-[#96eaff] text-sm transition-colors" href="#">Produto</a></li>
+<li><a class="text-[#dfe2eb]/60 hover:text-[#96eaff] text-sm transition-colors" href="#">Loja</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-headline font-bold uppercase text-xs tracking-widest mb-6 text-primary">Legal</h4>
+<ul class="space-y-3">
+<li><a class="text-[#dfe2eb]/60 hover:text-[#96eaff] text-sm transition-colors" href="#">Quem Somos</a></li>
+<li><a class="text-[#4FD1ED] text-sm font-bold" href="#">Sustentabilidade</a></li>
+<li><a class="text-[#dfe2eb]/60 hover:text-[#96eaff] text-sm transition-colors" href="#">Privacidade</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-headline font-bold uppercase text-xs tracking-widest mb-6 text-primary">Contato</h4>
+<p class="text-sm text-on-surface-variant">contato@ventiloar.com.br</p>
+<div class="flex gap-4 mt-6">
+<span class="material-symbols-outlined text-[#dfe2eb]/60 hover:text-primary cursor-pointer">public</span>
+<span class="material-symbols-outlined text-[#dfe2eb]/60 hover:text-primary cursor-pointer">monitoring</span>
+</div>
+</div>
+</div>
+<div class="px-12 py-8 border-t border-outline-variant/10 text-center">
+<p class="text-[10px] font-headline text-on-surface-variant tracking-[0.2em] uppercase">© 2024 VENTILOAR PRECISION ATMOSPHERIC ENGINEERING. ALL RIGHTS RESERVED.</p>
+</div>
+</footer>
+</body></html>

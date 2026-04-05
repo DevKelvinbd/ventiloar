@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulação de Orçamento</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+        .container {
+            background: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+        }
+        textarea {
+            width: 100%;
+            height: 200px;
+            margin-bottom: 20px;
+        }
+        button {
+            padding: 10px 15px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 10px;
+            background: #e9ecef;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Gerador de Orçamento</h1>
+        <textarea id="inputMessage" placeholder="Cole a mensagem aqui..."></textarea>
+        <button onclick="calcular()">Gerar Orçamento</button>
+
+        <button onclick="compartilharWhatsApp()">Compartilhar Orçamento</button>
+        <div class="result" id="result"></div>
+    </div>
+
+    <script>
+        function calcularOrcamento(dados) {
+            const precosMotores = {
+                120: 1400,
+                200: 1600,
+                250: 2000
+            };
+
+            const precosHelices = {
+                50: 500,
+                60: 600,
+                70: 700,
+                100: 1200,
+                120: 1500
+            };
+
+            const totalHelices = dados.quantidadeHelices * (precosHelices[dados.tamanhoHelice] || 0);
+            const totalMotores = dados.quantidadeMotoresSerie * (precosMotores[dados.potenciaMotor] || 0);
+            const totalInvestimento = totalHelices + totalMotores;
+
+            const custoSerie = parseFloat(dados.custoSerie.replace('R$', '').replace('.', '').replace(',', '.')) || 0;
+            const custoTradicional = parseFloat(dados.custoTradicional.replace('R$', '').replace('.', '').replace(',', '.')) || 0;
+
+            const economiaMensal = custoTradicional - custoSerie;
+            const mesesParaRetorno = economiaMensal > 0 ? (totalInvestimento / economiaMensal).toFixed(0) : 'N/A';
+
+            return {
+                total: totalInvestimento,
+                texto: `
+                    🙋 Olá, você pediu esse orçamento: Tenho interesse no sistema, gostaria de um orçamento!<br>
+                    📝 Nome: ${dados.nome}<br>
+                    📍 Endereço: ${dados.endereco}<br>
+                    🏫 Tipo de Espaço: ${dados.tipoEspaco}<br><br>
+                    📊 Resultados da Simulação:<br>
+                    📏 Tamanho do Espaço: ${dados.tamanhoEspaco} m²<br>
+                    🌀 Hélice Escolhida: ${dados.tamanhoHelice} cm<br>
+                    🌀 Quantidade de Hélices: ${dados.quantidadeHelices}<br>
+                    ⚙️ Motores em Série: ${dados.quantidadeMotoresSerie}<br>
+                    ⚙️ Motor para Sistema em Série: ${dados.potenciaMotor}W<br>
+                    ⚙️ Motores Tradicionais: ${dados.quantidadeMotoresTradicionais}<br>
+                    ⚡ Consumo Mensal (Série): ${dados.consumoSerie} kWh<br>
+                    ⚡ Consumo Mensal (Tradicional): ${dados.consumoTradicional} kWh<br>
+                    💵 Custo Mensal (Série): R$ ${custoSerie.toFixed(2).replace('.', ',').replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.')}<br>
+                    💸 Custo Mensal (Tradicional): R$ ${custoTradicional.toFixed(2).replace('.', ',').replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.')}<br>
+                    ✅ Economia Estimada: R$ ${economiaMensal.toFixed(2).replace('.', ',').replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.')}<br><br>
+                    
+                    📝 Segue o orçamento que você pediu conforme mensagem acima:<br><br>
+                    *Dados do Orçamento:*<br><br>
+                    - ${dados.quantidadeHelices} Hélices de ${dados.tamanhoHelice} cm + engrenagens, cabos, conectores etc. = R$ ${totalHelices.toFixed(2).replace('.', ',').replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.') }<br><br>
+                    - ${dados.quantidadeMotoresSerie} Motores em Série tipo ${dados.potenciaMotor}W = R$ ${totalMotores.toFixed(2).replace('.', ',').replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.') }<br><br>
+                    
+                    💰 *Valor Total: R$ ${totalInvestimento.toFixed(2).replace('.', ',').replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.') }*<br><br>
+                    ⏳ *recupera o investimento em ${mesesParaRetorno} meses só com a economia de energia*<br><br>
+                    ⚠️ Atenção: Frete e instalação por sua conta.<br><br>
+
+                    Empresa Projetação Empreendimentos Ltda<br>
+                    Sistema Ventiloar<br>
+                    CNPJ: 47.950.352.0001-71<br>
+                    📞 Contato: 88 99476-0657
+                `
+            };
+        }
+
+        function calcular() {
+            const message = document.getElementById('inputMessage').value;
+
+            const nome = (message.match(/Nome:\s*(.+)/) || [])[1] || 'Não informado';
+            const endereco = (message.match(/Endereço:\s*(.+)/) || [])[1] || 'Não informado';
+            const tipoEspaco = (message.match(/Tipo de Espaço:\s*(.+)/) || [])[1] || 'Não informado';
+            const tamanhoEspaco = parseFloat((message.match(/Tamanho do Espaço:\s*([\d.,]+)/) || [])[1]) || 0;
+            const quantidadeHelices = parseInt((message.match(/Quantidade de Hélices:\s*(\d+)/) || [])[1]) || 0;
+            const tamanhoHelice = (message.match(/Hélice Escolhida:\s*([\d\s]+) cm/) || [])[1] || 'Não informado';
+            const quantidadeMotoresSerie = parseInt((message.match(/Motores em Série:\s*(\d+)/) || [])[1]) || 0;
+            const quantidadeMotoresTradicionais = parseInt((message.match(/Motores Tradicionais:\s*(\d+)/) || [])[1]) || 0;
+
+            // Definindo a potência do motor com base no tamanho da hélice
+            const potenciaMotor = {
+                '50': 120,
+                '60': 120,
+                '70': 120,
+                '100': 200,
+                '120': 250
+            }[tamanhoHelice] || 120; // Padrão 120W
+
+            const consumoSerie = (message.match(/Consumo Mensal \(Série\):\s*([\d.,]+)/) || [])[1] || '0';
+            const consumoTradicional = (message.match(/Consumo Mensal \(Tradicional\):\s*([\d.,]+)/) || [])[1] || '0';
+            const custoSerie = (message.match(/Custo Mensal \(Série\):\s*R\$ ([\d.,]+)/) || [])[1] || 'R$ 0';
+            const custoTradicional = (message.match(/Custo Mensal \(Tradicional\):\s*R\$ ([\d.,]+)/) || [])[1] || 'R$ 0';
+
+            const dados = {
+                nome,
+                endereco,
+                tipoEspaco,
+                tamanhoEspaco,
+                quantidadeHelices,
+                tamanhoHelice,
+                quantidadeMotoresSerie,
+                quantidadeMotoresTradicionais,
+                potenciaMotor,
+                consumoSerie,
+                consumoTradicional,
+                custoSerie,
+                custoTradicional
+            };
+
+            const resultado = calcularOrcamento(dados);
+            document.getElementById('result').innerHTML = resultado.texto;
+        }
+
+        function imprimir() {
+            const doc = new jsPDF();
+            const resultText = document.getElementById('result').innerHTML;
+            doc.fromHTML(resultText, 15, 15);
+            doc.save('orcamento.pdf');
+        }
+
+        function compartilharWhatsApp() {
+            const resultText = document.getElementById('result').innerText;
+            const message = encodeURIComponent(resultText);
+            const url = `https://wa.me/?text=${message}`;
+            window.open(url, '_blank');
+        }
+    </script>
+</body>
+</html>

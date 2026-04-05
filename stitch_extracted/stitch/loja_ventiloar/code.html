@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "error-container": "#93000a",
+                    "secondary-container": "#224c57",
+                    "on-background": "#dfe2eb",
+                    "secondary-fixed-dim": "#a3cdd9",
+                    "inverse-surface": "#dfe2eb",
+                    "on-secondary-container": "#92bcc8",
+                    "tertiary-container": "#ffb14f",
+                    "surface-tint": "#56d6f2",
+                    "on-error-container": "#ffdad6",
+                    "tertiary": "#ffd6aa",
+                    "outline-variant": "#3d494c",
+                    "on-tertiary-container": "#714500",
+                    "on-surface-variant": "#bcc9cd",
+                    "surface-bright": "#353940",
+                    "on-primary-fixed-variant": "#004e5c",
+                    "primary-fixed": "#aaedff",
+                    "on-surface": "#dfe2eb",
+                    "inverse-primary": "#006879",
+                    "on-secondary-fixed": "#001f26",
+                    "tertiary-fixed": "#ffddb9",
+                    "on-tertiary": "#482a00",
+                    "surface-container-lowest": "#0a0e14",
+                    "background": "#10141a",
+                    "surface-container-highest": "#31353c",
+                    "surface-container-low": "#181c22",
+                    "surface": "#10141a",
+                    "on-secondary": "#03363f",
+                    "surface-container": "#1c2026",
+                    "error": "#ffb4ab",
+                    "on-tertiary-fixed": "#2b1700",
+                    "primary-container": "#4fd1ed",
+                    "outline": "#869397",
+                    "primary-fixed-dim": "#56d6f2",
+                    "on-primary-fixed": "#001f26",
+                    "on-primary": "#003640",
+                    "primary": "#96eaff",
+                    "surface-dim": "#10141a",
+                    "on-tertiary-fixed-variant": "#663e00",
+                    "surface-variant": "#31353c",
+                    "on-secondary-fixed-variant": "#224c57",
+                    "secondary": "#a3cdd9",
+                    "tertiary-fixed-dim": "#ffb964",
+                    "on-primary-container": "#005766",
+                    "on-error": "#690005",
+                    "surface-container-high": "#262a31",
+                    "inverse-on-surface": "#2d3137",
+                    "secondary-fixed": "#bfeaf6"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Space Grotesk"],
+                    "body": ["Inter"],
+                    "label": ["Space Grotesk"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .technical-line {
+            height: 2px;
+            background-color: #4FD1ED;
+            width: 60px;
+            margin-top: 8px;
+        }
+        .glass-panel {
+            background: rgba(24, 28, 34, 0.6);
+            backdrop-filter: blur(24px);
+        }
+        .industrial-pattern {
+            background-image: radial-gradient(circle at 1px 1px, #3d494c 1px, transparent 0);
+            background-size: 40px 40px;
+            background-position: center;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopNavBar -->
+<nav class="bg-[#10141a]/60 backdrop-blur-xl docked full-width top-0 sticky z-50 flex justify-between items-center w-full px-8 py-4 max-w-full mx-auto shadow-[0_40px_60px_-15px_rgba(223,226,235,0.06)]">
+<div class="text-2xl font-bold uppercase text-[#dfe2eb] tracking-tighter font-headline">
+            VENTILOAR
+        </div>
+<div class="hidden md:flex items-center gap-8">
+<a class="text-[#dfe2eb] hover:text-[#96eaff] transition-colors font-headline uppercase text-sm tracking-wider" href="#">Início</a>
+<a class="text-[#dfe2eb] hover:text-[#96eaff] transition-colors font-headline uppercase text-sm tracking-wider" href="#">Produto</a>
+<a class="text-[#4FD1ED] border-b-2 border-[#4FD1ED] pb-1 font-bold font-headline uppercase text-sm tracking-wider" href="#">Loja</a>
+<a class="text-[#dfe2eb] hover:text-[#96eaff] transition-colors font-headline uppercase text-sm tracking-wider" href="#">Orçamento</a>
+<a class="text-[#dfe2eb] hover:text-[#96eaff] transition-colors font-headline uppercase text-sm tracking-wider" href="#">Quem Somos</a>
+<a class="text-[#dfe2eb] hover:text-[#96eaff] transition-colors font-headline uppercase text-sm tracking-wider" href="#">Sustentabilidade</a>
+<a class="text-[#dfe2eb] hover:text-[#96eaff] transition-colors font-headline uppercase text-sm tracking-wider" href="#">Parceiros</a>
+</div>
+<button class="bg-[#ffb14f] text-[#482a00] px-6 py-2 rounded-sm font-headline font-bold uppercase tracking-wider text-sm hover:bg-[#ffb964] transition-all active:scale-95 duration-150">
+            GET STARTED
+        </button>
+</nav>
+<main class="min-h-screen bg-surface-container-lowest industrial-pattern">
+<!-- Hero / Header Section -->
+<header class="pt-24 pb-16 px-8 max-w-7xl mx-auto">
+<div class="relative inline-block mb-4">
+<span class="bg-secondary-container text-on-secondary-container px-3 py-1 rounded-sm text-xs font-headline flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-primary-container shadow-[0_0_8px_#4FD1ED]"></span>
+                    STORE UNDER CONSTRUCTION
+                </span>
+</div>
+<h1 class="text-6xl md:text-8xl font-headline font-bold uppercase tracking-tight text-on-surface">
+                COMPONENTES DE <br/><span class="text-primary">PRECISÃO</span>
+</h1>
+<div class="technical-line"></div>
+<p class="mt-8 max-w-2xl text-on-surface-variant text-lg font-light leading-relaxed">
+                Nossa engenharia atmosférica depende de componentes de alta performance. Explore nosso catálogo técnico de acessórios originais Ventiloar. Em breve com transações diretas.
+            </p>
+</header>
+<!-- Product Grid -->
+<section class="px-8 pb-32 max-w-7xl mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+<!-- Card 1: Engrenagem cônica -->
+<div class="bg-surface-container-low p-1 rounded-sm group hover:bg-surface-container-high transition-all duration-300">
+<div class="aspect-square bg-surface-container-lowest overflow-hidden">
+<img class="w-full h-full object-cover mix-blend-luminosity hover:mix-blend-normal transition-all duration-500 scale-105 group-hover:scale-100" data-alt="Technical macro shot of a precision engineered metal bevel gear with metallic reflections and dark industrial background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAAm3y71T3K_xiJBImo7vsnfHK34xUqGhI6gjvBM78PII2MvoF-spTsM8d-JYibMNQJzyMn8NRLFkXHTpPJDqNbjayb1Or0ucsugGfGjnvwehdDheXyAyNIwFmf0Pt3oYx0_USrDYW8Pb3-eXSatmACHHgU2jYtp0AbhtiRifLn8q6TfUjfGk2GFPCSpHQg1EvR6tXo3QI1Q1FjSrkQI71P17_fRpPSfub4WizYFkcRPgtf7DxauOSawImhriYDOjuZBcE4YoK-NQh2"/>
+</div>
+<div class="p-6">
+<h3 class="font-headline font-bold uppercase text-lg mb-2 text-on-surface">Engrenagem cônica</h3>
+<p class="text-sm text-on-surface-variant font-light mb-6 line-clamp-3">Aço temperado de alta resistência com perfil de dente otimizado para transmissão silenciosa e eficiente.</p>
+<a class="block w-full text-center py-3 border border-outline-variant/30 text-primary uppercase font-headline font-bold text-xs tracking-widest hover:bg-primary-container hover:text-on-primary-container transition-colors" href="https://wa.me/yourphonenumber">
+                            Consultar disponibilidade
+                        </a>
+</div>
+</div>
+<!-- Card 2: Suporte / braçadeira metálica -->
+<div class="bg-surface-container-low p-1 rounded-sm group hover:bg-surface-container-high transition-all duration-300">
+<div class="aspect-square bg-surface-container-lowest overflow-hidden">
+<img class="w-full h-full object-cover mix-blend-luminosity hover:mix-blend-normal transition-all duration-500 scale-105 group-hover:scale-100" data-alt="Heavy duty industrial metal clamps and structural support components on a blueprint background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCHZr_38U3v5PjloCfy6k6Taxcg7NfW_PApv-zz0QxqcADZkQ2TfdEfYCSd7TOWroad06Hn6xGr3_2lDdrzmQv9YjcbuHPfzsKmsRIN8GubRQzsEeOco8lSkRJR5aQEkdB2iYojeR4gqpuXXjeW9QwyaypQHL2bW9kAYU23B18HsqZCk6u3PWnTeFBT8lZfq_fBXeCaC4bC5pba3Kov6Tx_XommIvw5HRfnpKgK0uOdMaKym5Md2EkA717A-C_zwrBVipKLhiHIFEQd"/>
+</div>
+<div class="p-6">
+<h3 class="font-headline font-bold uppercase text-lg mb-2 text-on-surface">Suporte metálico</h3>
+<p class="text-sm text-on-surface-variant font-light mb-6 line-clamp-3">Braçadeira estrutural em aço galvanizado com sistema de fixação antivibração patenteado.</p>
+<a class="block w-full text-center py-3 border border-outline-variant/30 text-primary uppercase font-headline font-bold text-xs tracking-widest hover:bg-primary-container hover:text-on-primary-container transition-colors" href="https://wa.me/yourphonenumber">
+                            Consultar disponibilidade
+                        </a>
+</div>
+</div>
+<!-- Card 3: Caixa de engrenagem + eixo -->
+<div class="bg-surface-container-low p-1 rounded-sm group hover:bg-surface-container-high transition-all duration-300">
+<div class="aspect-square bg-surface-container-lowest overflow-hidden">
+<img class="w-full h-full object-cover mix-blend-luminosity hover:mix-blend-normal transition-all duration-500 scale-105 group-hover:scale-100" data-alt="Industrial gearbox assembly with steel drive shaft showing precision machining details in a low light studio" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCiXmWZy17fblGuXcUZYDjaoiB_G4jh0QgIRMYvC3XbyjnHL5zn-7CUpTPIfiPB2B9M51BRMjVZq1CpG8DtJ-VAWoir5L6ek3Ozr64JxcK8_w4-8uemxPuNcrjnQiGfLv9dY2-B-4BSp5erqZkJdBT41B6Q9Djw3LbmcyyYQ1qb_G7vgGXW_6nbbTPVN52K631XbjBg6q0yiCPltR7MB8dylaZRE8ZwMzd9pffjhMrp_ejkltMsKvX4rFWloat5t2lTSevYmEB1Qj9s"/>
+</div>
+<div class="p-6">
+<h3 class="font-headline font-bold uppercase text-lg mb-2 text-on-surface">Caixa + Eixo</h3>
+<p class="text-sm text-on-surface-variant font-light mb-6 line-clamp-3">Conjunto de transmissão integrada com vedação hermética contra partículas e poeira industrial.</p>
+<a class="block w-full text-center py-3 border border-outline-variant/30 text-primary uppercase font-headline font-bold text-xs tracking-widest hover:bg-primary-container hover:text-on-primary-container transition-colors" href="https://wa.me/yourphonenumber">
+                            Consultar disponibilidade
+                        </a>
+</div>
+</div>
+<!-- Card 4: Suporte em U -->
+<div class="bg-surface-container-low p-1 rounded-sm group hover:bg-surface-container-high transition-all duration-300">
+<div class="aspect-square bg-surface-container-lowest overflow-hidden">
+<img class="w-full h-full object-cover mix-blend-luminosity hover:mix-blend-normal transition-all duration-500 scale-105 group-hover:scale-100" data-alt="U-shaped metal industrial bracket with mounting holes shot from a high angle on a dark technical surface" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDJSuU-nkaRRxXphPuTVSPPtz6t0SnHlSm2rZYYx4ec5_gYtoUEblGHzlIvCUAEj6AdtMAZBo3_eJ1jCqdn7VU2GE0nKVCcwU-UjmFjezQ0J9D98R3dtBr3w1tb87xdSr3U2LQTEcDB_MEzaBWl0aPd5vyqOnkUgzs03D10mwX6ulSpGHKM71k5Vp8aLdMnApHDw7T1VJSiKNUrqk4WldB9YbDmZdCp7tNijVloPJeHyU1VA1lle2D4ySvXVXKchtK4I7qcHrnu4TcU"/>
+</div>
+<div class="p-6">
+<h3 class="font-headline font-bold uppercase text-lg mb-2 text-on-surface">Suporte em U</h3>
+<p class="text-sm text-on-surface-variant font-light mb-6 line-clamp-3">Base de ancoragem universal para sistemas de exaustão, fabricada em aço de alta liga laminado.</p>
+<a class="block w-full text-center py-3 border border-outline-variant/30 text-primary uppercase font-headline font-bold text-xs tracking-widest hover:bg-primary-container hover:text-on-primary-container transition-colors" href="https://wa.me/yourphonenumber">
+                            Consultar disponibilidade
+                        </a>
+</div>
+</div>
+<!-- Card 5: Painel elétrico -->
+<div class="bg-surface-container-low p-1 rounded-sm group hover:bg-surface-container-high transition-all duration-300">
+<div class="aspect-square bg-surface-container-lowest overflow-hidden">
+<img class="w-full h-full object-cover mix-blend-luminosity hover:mix-blend-normal transition-all duration-500 scale-105 group-hover:scale-100" data-alt="Interior of a modern industrial electrical control panel with neat wiring and circuit breakers" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD37X_xKaWp_39xIXzGQs-52kIfQfwOjveUZ9pkZRrmARygpVAWDSxcboUNN6PMqVILgrJG1U54aF5yysAfiG1X9UyPch_X1MWjQVjCCugwp2PZKzIuadyP2U4ZmQHDoUCGhkbm-iSdEc4GIcgCCbf-5XuLfMOFD6y3hb7Z-fLQdMP9n4i1jRYJaxZ0jVGCiK1Y-kmXJbV0QNMwNkgcdyCDpINq4nwbW2NDfg2RwhrIABUstlgKGdXCI2cXCcysC7WqRu7wchpscn7u"/>
+</div>
+<div class="p-6">
+<h3 class="font-headline font-bold uppercase text-lg mb-2 text-on-surface">Painel elétrico</h3>
+<p class="text-sm text-on-surface-variant font-light mb-6 line-clamp-3">Módulo de comando centralizado com proteção IP65 e componentes Schneider/WEG integrados.</p>
+<a class="block w-full text-center py-3 border border-outline-variant/30 text-primary uppercase font-headline font-bold text-xs tracking-widest hover:bg-primary-container hover:text-on-primary-container transition-colors" href="https://wa.me/yourphonenumber">
+                            Consultar disponibilidade
+                        </a>
+</div>
+</div>
+<!-- Card 6: Controlador eletrônico -->
+<div class="bg-surface-container-low p-1 rounded-sm group hover:bg-surface-container-high transition-all duration-300">
+<div class="aspect-square bg-surface-container-lowest overflow-hidden">
+<img class="w-full h-full object-cover mix-blend-luminosity hover:mix-blend-normal transition-all duration-500 scale-105 group-hover:scale-100" data-alt="Close-up of a high-tech electronic controller circuit board with glowing blue indicators" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDgcqvWNk75PvkM_iCvLCyP-yXVPDhquc_EWE8KccScbtqECAsS4xZaW_Myk1i5jNze3iooJ7h2N_zFuIPc4GUNxNgUxqXqrvgYevzRNCkIjf4AodmCNllZgSH6qMerbd9jwOLBoTG4nLMpzAJSnrZ9k-6sUvpQlA8nhVPRhvOkgTbdhyNcCVD1U3ghzminIKAXBl-hnj7BvbHfQzEG5wqWj4OaYe0dhF4RrzVTUU6Ys2h7nAal4EYfzSiE42SPE3r1wz2jAdfFC8Zg"/>
+</div>
+<div class="p-6">
+<h3 class="font-headline font-bold uppercase text-lg mb-2 text-on-surface">Controlador</h3>
+<p class="text-sm text-on-surface-variant font-light mb-6 line-clamp-3">Interface digital inteligente para ajuste fino de RPM e monitoramento de vazão em tempo real.</p>
+<a class="block w-full text-center py-3 border border-outline-variant/30 text-primary uppercase font-headline font-bold text-xs tracking-widest hover:bg-primary-container hover:text-on-primary-container transition-colors" href="https://wa.me/yourphonenumber">
+                            Consultar disponibilidade
+                        </a>
+</div>
+</div>
+<!-- Card 7: Kit correia + polias GT2 -->
+<div class="bg-surface-container-low p-1 rounded-sm group hover:bg-surface-container-high transition-all duration-300">
+<div class="aspect-square bg-surface-container-lowest overflow-hidden">
+<img class="w-full h-full object-cover mix-blend-luminosity hover:mix-blend-normal transition-all duration-500 scale-105 group-hover:scale-100" data-alt="Technical layout of industrial timing belts and metal pulleys on a workspace desk" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD59PqCY2XeeiHk8-mdgTTILw1lPmfmE5-GKi0w-CPzb7nKeqEGuo7GUTRTi8Z6jS75JZ3vISPxOAUvVIihH-MQLLCulPIDnX6tLqKlRNMOBxp8fXSyQX-df7YHMgwIjePECabebnMaRmWlHEsd2yQDseIVKYnq1jNqMhb2Qyga4f0hFkjc86g6Vy5HoydfzqCs9PRfZzUb_kP3VLGF8VblRbU02wDXYQRPYxljfwHQIr2RbeAfTeNX2-A9hWsW6BrYa0dc_ALcFJvb"/>
+</div>
+<div class="p-6">
+<h3 class="font-headline font-bold uppercase text-lg mb-2 text-on-surface">Kit GT2</h3>
+<p class="text-sm text-on-surface-variant font-light mb-6 line-clamp-3">Par de polias em alumínio aeronáutico e correia de borracha reforçada com fibra de vidro.</p>
+<a class="block w-full text-center py-3 border border-outline-variant/30 text-primary uppercase font-headline font-bold text-xs tracking-widest hover:bg-primary-container hover:text-on-primary-container transition-colors" href="https://wa.me/yourphonenumber">
+                            Consultar disponibilidade
+                        </a>
+</div>
+</div>
+<!-- Card 8: Tampa / capa Ventiloar -->
+<div class="bg-surface-container-low p-1 rounded-sm group hover:bg-surface-container-high transition-all duration-300">
+<div class="aspect-square bg-surface-container-lowest overflow-hidden">
+<img class="w-full h-full object-cover mix-blend-luminosity hover:mix-blend-normal transition-all duration-500 scale-105 group-hover:scale-100" data-alt="Sleek aerodynamic composite protective cover for industrial ventilation equipment in charcoal grey" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCdeEBGHsZsCUefWOomKB1hAf70mZFuJ_kjZ1hHfXRR0oWEp8NVbx2FnFz44e5_V_zb8lg9gIqszxJsqwRyKlLID_54RIfpz3JiRayC5PAJla3i_G4rliKq1ksA54nF6NDWcZVJBQtCslviVmIBCF09NfX_L5swXrFN9SaGVoNgb42OM5xLjTkfaeKKAjlKTuEtNH9IqvnfAwx7H571OttKCGg0XyCd28nhUgh_3PxRnqu3J9TcuUAkIKTPbioRoVqfQRu0Rb3JTFqy"/>
+</div>
+<div class="p-6">
+<h3 class="font-headline font-bold uppercase text-lg mb-2 text-on-surface">Tampa / Capa</h3>
+<p class="text-sm text-on-surface-variant font-light mb-6 line-clamp-3">Proteção aerodinâmica em polímero de alta densidade com acabamento texturizado UV-resistente.</p>
+<a class="block w-full text-center py-3 border border-outline-variant/30 text-primary uppercase font-headline font-bold text-xs tracking-widest hover:bg-primary-container hover:text-on-primary-container transition-colors" href="https://wa.me/yourphonenumber">
+                            Consultar disponibilidade
+                        </a>
+</div>
+</div>
+</div>
+</section>
+<!-- Under Construction Banner -->
+<section class="bg-surface-container-high py-24 border-t border-outline-variant/10">
+<div class="max-w-4xl mx-auto px-8 text-center">
+<span class="material-symbols-outlined text-tertiary text-6xl mb-6">engineering</span>
+<h2 class="text-3xl font-headline font-bold uppercase tracking-widest mb-4">Arquitetura de E-commerce em Desenvolvimento</h2>
+<p class="text-on-surface-variant mb-10 max-w-2xl mx-auto">
+                    Estamos calibrando nossa plataforma de vendas direta para oferecer a melhor experiência técnica. Em breve, você poderá realizar pedidos, gerenciar orçamentos e rastrear envios diretamente por aqui.
+                </p>
+<div class="flex flex-col md:flex-row gap-4 justify-center">
+<div class="bg-surface-container-lowest p-6 rounded-sm border border-outline-variant/20 flex-1">
+<h4 class="font-headline font-bold uppercase text-xs text-primary mb-2">Próxima Fase</h4>
+<p class="text-sm">Pagamento Integrado via PIX e Boleto Industrial.</p>
+</div>
+<div class="bg-surface-container-lowest p-6 rounded-sm border border-outline-variant/20 flex-1">
+<h4 class="font-headline font-bold uppercase text-xs text-primary mb-2">Suporte Técnico</h4>
+<p class="text-sm">Chat especializado para auxílio na escolha de peças.</p>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-[#0a0e14] w-full border-t border-[#3d494c]/15">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-12 px-12 py-16 w-full">
+<div class="col-span-1 md:col-span-1">
+<div class="text-xl font-bold text-[#dfe2eb] uppercase font-headline mb-6">
+                    VENTILOAR
+                </div>
+<p class="text-sm text-on-surface-variant font-light leading-relaxed">
+                    Precision Atmospheric Engineering.<br/>
+                    Soluções industriais de alto desempenho para controle térmico e fluxo de ar.
+                </p>
+</div>
+<div>
+<h4 class="font-bold uppercase text-xs font-['Space_Grotesk'] text-[#4FD1ED] mb-6 tracking-widest">Navegação</h4>
+<ul class="space-y-4">
+<li><a class="text-[#dfe2eb]/60 hover:text-[#96eaff] text-sm underline-offset-4 hover:underline" href="#">Início</a></li>
+<li><a class="text-[#dfe2eb]/60 hover:text-[#96eaff] text-sm underline-offset-4 hover:underline" href="#">Produto</a></li>
+<li><a class="text-[#4FD1ED] text-sm" href="#">Loja</a></li>
+<li><a class="text-[#dfe2eb]/60 hover:text-[#96eaff] text-sm underline-offset-4 hover:underline" href="#">Orçamento</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold uppercase text-xs font-['Space_Grotesk'] text-[#4FD1ED] mb-6 tracking-widest">Institucional</h4>
+<ul class="space-y-4">
+<li><a class="text-[#dfe2eb]/60 hover:text-[#96eaff] text-sm underline-offset-4 hover:underline" href="#">Quem Somos</a></li>
+<li><a class="text-[#dfe2eb]/60 hover:text-[#96eaff] text-sm underline-offset-4 hover:underline" href="#">Sustentabilidade</a></li>
+<li><a class="text-[#dfe2eb]/60 hover:text-[#96eaff] text-sm underline-offset-4 hover:underline" href="#">Parceiros</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold uppercase text-xs font-['Space_Grotesk'] text-[#4FD1ED] mb-6 tracking-widest">Contato</h4>
+<p class="text-sm text-[#dfe2eb]/60 mb-2">contato@ventiloar.eng.br</p>
+<p class="text-sm text-[#dfe2eb]/60">+55 (11) 9999-9999</p>
+<div class="mt-6 flex gap-4">
+<span class="material-symbols-outlined text-[#dfe2eb]/60 hover:text-[#96eaff] cursor-pointer">share</span>
+<span class="material-symbols-outlined text-[#dfe2eb]/60 hover:text-[#96eaff] cursor-pointer">mail</span>
+</div>
+</div>
+</div>
+<div class="px-12 py-8 border-t border-[#3d494c]/10 text-center">
+<p class="text-[10px] uppercase tracking-widest text-[#dfe2eb]/30 font-headline">
+                © 2024 VENTILOAR PRECISION ATMOSPHERIC ENGINEERING. ALL RIGHTS RESERVED.
+            </p>
+</div>
+</footer>
+</body></html>

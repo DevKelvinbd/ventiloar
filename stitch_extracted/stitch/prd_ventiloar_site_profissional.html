@@ -1,0 +1,197 @@
+# PROMPT — Construção do Site Ventiloar
+## CONTEXTO DO PROJETO
+Você vai construir um site profissional completo para a empresa **Ventiloar**, uma startup cearense de tecnologia em ventilação inteligente. O site deve ser hospedado em servidor próprio (não Google Sites), com design moderno, responsivo e orientado à conversão.
+---
+## SOBRE A EMPRESA
+**Nome:** Ventiloar
+**Sede:** Madalena/CE — atende atualmente apenas o estado do Ceará
+**Segmento:** Tecnologia em eficiência energética e ventilação industrial/comercial
+**Estágio:** Startup em fase de lançamento comercial, com produto validado e em processo de certificação de créditos de carbono
+**Projeto de fomento:** TECNOVA III CE – FUNCAP/FINEP (público)
+### História da Fundação (usar na página "Quem Somos")
+O fundador trabalhou por 20 anos como eletricista na prefeitura, acumulando profundo conhecimento prático sobre os problemas de ventilação em ambientes públicos e comerciais — principalmente a falha frequente de motores individuais em ventiladores convencionais. A partir dessa vivência, surgiu a ideia de criar um sistema onde **um único motor de qualidade central aciona múltiplas hélices simultaneamente**, eliminando o ponto de falha mais comum. Com R$5.000 emprestados pela esposa, montou os primeiros protótipos para validação. O projeto foi apresentado no **CearaTech Summit 2024**, onde o fundador — mesmo em dúvida sobre a relevância da ideia — descobriu o edital do programa TECNOVA III e entrou no ecossistema de inovação cearense.
+**Tom da história:** Autêntico, humilde, técnico e inspirador. "Da necessidade real à solução inovadora."
+---
+## O PRODUTO — SISTEMA VENTILOAR
+**Nome do produto:** Sistema Ventiloar
+**Conceito:** Sistema de ventilação centralizado onde um único motor de alta qualidade aciona de **2 a 10 hélices** via cabos/transmissão (Sistema 3F), eliminando motores individuais por hélice.
+**Especificações principais:**
+- Número de hélices: 2 a 10 por sistema
+- Área atendida: a partir de 2m² (sem limite superior — escala conforme necessidade)
+- Economia de energia: até **80%** em relação a sistemas de ventilação convencionais
+- Instalação: realizada pela Ventiloar em parceria com eletricistas credenciados da região
+- Modelo de venda: sistema completo sob medida (sempre orçamento personalizado, pois depende de análise do espaço)
+**Público-alvo:**
+- Empresas industriais (galpões, fábricas)
+- Comércios (supermerkados, lojas, escolas, hospitais)
+- Qualquer ambiente comercial que precise de ventilação em larga escala
+**Principal proposta de valor:**
+> "Um motor. Múltiplas hélices. 80% menos energia."
+---
+## IDENTIDADE VISUAL
+**Paleta de cores:**
+- Primary: `#4FD1ED` (azul-ciano vibrante)
+- Secondary: `#547D88` (azul-petróleo)
+- Tertiary: `#FFB14F` (âmbar/laranja — usar para CTAs e destaques)
+- Neutral/Background: `#0A0E14` (quase preto, fundo escuro)
+- Textos claros sobre fundo escuro; textos escuros sobre fundos claros
+**Estilo visual:**
+- Dark mode como base (fundo `#0A0E14`)
+- Tipografia moderna, sans-serif, títulos em maiúsculas com peso bold
+- Linha decorativa em Primary (`#4FD1ED`) sob títulos de seção
+- Elementos técnicos/industriais no design (engrenagens, linhas de transmissão, ícones de eficiência)
+- Sem redes sociais por enquanto
+**Logo:** Símbolo de hélice/ventilador em `#4FD1ED` com fundo escuro
+---
+## ESTRUTURA DO SITE
+### Navegação principal
+```
+Logo + "VENTILOAR"
+├── Início
+├── Produto
+├── Loja          ← (em construção inicialmente, sem e-commerce ativo ainda)
+├── Orçamento
+├── Quem Somos
+├── Sustentabilidade
+└── Parceiros
+```
+> Observação: futuramente haverá área privada com login para parceiros/técnicos (Gerar Orçamento e Gerar Relatório Técnico). Já deixar a arquitetura preparada para isso, mas sem implementar agora.
+---
+## PÁGINAS — DETALHAMENTO
+### PÁGINA 1 — Início (Home)
+**Seção Hero:**
+- Headline principal: "Um motor. Até 10 hélices. 80% menos energia."
+- Subheadline: breve descrição do Sistema Ventiloar
+- CTA primário (botão em `#FFB14F`): "Solicitar Orçamento"
+- Fundo escuro com elemento visual do sistema (engrenagens, hélices, transmissão)
+**Seção — Problema vs Solução:**
+- Mostre o problema: motores individuais que falham, alto consumo, manutenção cara
+- Mostre a solução: um motor central, múltiplas hélices, sistema robusto
+**Seção — Números de Impacto (cards com destaque visual):**
+- 80% de economia de energia
+- 2 a 10 hélices por sistema
+- 1 motor central de alta qualidade
+- Atendimento em todo o Ceará
+**Seção — Como funciona (3 passos):**
+1. Preencha o formulário de orçamento
+2. Nossa equipe analisa seu espaço
+3. Instalação realizada por eletricistas parceiros
+**Seção — Últimas Notícias/Novidades:**
+- Placeholder para futuras notícias/cases
+- Por enquanto: destaque para apresentação no CearaTech Summit 2024 e aprovação no TECNOVA III
+**CTA Final:** Botão de orçamento repetido ao final da página
+---
+### PÁGINA 2 — Produto
+**Conteúdo:**
+- Explicação detalhada do Sistema Ventiloar
+- Como funciona a transmissão central (Sistema 3F)
+- Diagrama/ilustração do sistema: motor → transmissão → hélices
+- Vantagens técnicas em relação a ventiladores convencionais
+- Faixa de aplicação: 2m² ao infinito, 2 a 10 hélices
+- Destaque para a instalação profissional inclusa
+- CTA ao final: "Solicitar Orçamento"
+---
+### PÁGINA 3 — Loja
+**Estado atual:** Grid de acessórios com imagem, nome e descrição técnica. Sem preço ou botão de compra ainda — apenas botão "Consultar disponibilidade" redirecionando ao WhatsApp.
+**Acessórios a listar (adicionar descrições técnicas a cada um):**
+- Engrenagem cônica
+- Suporte / braçadeira metálica
+- Caixa de engrenagem + eixo
+- Suporte em U
+- Painel elétrico
+- Controlador eletrônico
+- Kit correia + polias GT2
+- Tampa / capa Ventiloar
+> Observação: deixar estrutura preparada para e-commerce futuro (carrinho, preços, checkout).
+---
+### PÁGINA 4 — Orçamento
+**Título:** "Fazer Orçamento"
+**Formulário público — Sistema de Simulação:**
+- Tamanho do espaço (m²)
+- Tipo de espaço (dropdown: Galpão industrial / Comércio / Escola / Hospital / Outro)
+- Número estimado de pontos de ventilação desejados
+- Tarifa de energia elétrica (R$/kWh) — pré-preenchido com 0,77, editável, com nota explicativa
+- Botão: "Calcular Economia Estimada" → exibe resultado de economia projetada
+- Campos do cliente: Nome completo, Telefone/WhatsApp, E-mail, Cidade
+- CTA final (botão verde): "Enviar Solicitação" → integração com WhatsApp
+**Área Privada — futura (arquitetura já preparada, autenticação não implementada agora):**
+*Subpágina: Gerar Orçamento*
+- Ferramenta interna para técnicos/parceiros gerarem documento de orçamento
+- Campo de texto livre para colar mensagem e gerar orçamento formatado
+*Subpágina: Gerar Relatório Técnico*
+- Formulário completo de Ensaio de Desempenho — Monitoramento e Eficiência Energética
+- Cabeçalho: PROJETAÇÃO EMPREENDIMENTOS LTDA | Projeto Ventiloar | TECNOVA III CE – FUNCAP/FINEP
+- Seção Identificação: ID, Responsável, Local, Objetivo
+- Seção Sistema: Tipo de Sistema, Qtd Ventiladores, Transmissão, Comprimento Cabo
+- Seção Motor: Potência (W), RPM Motor, Tensão (V), Corrente (A)
+- Seção Desempenho: RPM Hélice, Velocidade do Ar, Ruído (dB), Temperatura
+- Seção Resultados: Consumo 1h, Consumo 24h, Consumo Mês, Eficiência (calculados automaticamente)
+- Seção Observações: campo de texto livre
+- Botões: "Calcular" e "Gerar PDF"
+---
+### PÁGINA 5 — Quem Somos
+**Conteúdo:**
+- História do fundador (conforme descrita acima — autêntica e direta)
+- Missão: "Levar eficiência energética real para empresas cearenses através de tecnologia de ventilação inteligente"
+- Visão: "Ser referência nacional em sistemas de ventilação centralizada sustentável"
+- Diferenciais: 20 anos de expertise técnica, produto desenvolvido da necessidade real, aprovado no TECNOVA III CE, em processo de certificação de créditos de carbono
+- Foto do fundador (placeholder)
+- Linha do tempo simplificada:
+  - Ideia nascida da experiência prática (20 anos como eletricista)
+  - Protótipos com investimento inicial de R$5.000
+  - Apresentação no CearaTech Summit 2024
+  - Aprovação no TECNOVA III CE – FUNCAP/FINEP
+  - Hoje: lançamento comercial
+---
+### PÁGINA 6 — Sustentabilidade
+**Título:** "Créditos de Carbono"
+**Conteúdo:**
+- Explicação de como o Sistema Ventiloar contribui para redução de emissões (80% de economia energética = menos CO₂)
+- Status atual: em processo de certificação
+- Selos e certificações sendo buscados:
+  - VCS — Verified Carbon Standard (Verra) — Principal selo para a Ventiloar
+  - Gold Standard — Alternativa Premium
+  - MBRE — Mercado Brasileiro de Redução de Emissões — Estratégico para atuação no Brasil
+  - I-REC Standard (Energia Renovável) — Certificado Complementar
+  - ISO 14064 — Valida a metodologia
+- Incorporar vídeo explicativo sobre créditos de carbono (atualmente usa vídeo externo — futuramente vídeo próprio)
+- CTA: "Quero saber mais sobre o impacto ambiental do meu projeto"
+---
+### PÁGINA 7 — Parceiros
+**Conteúdo:**
+- Grid de cards com foto, nome e cidade de cada parceiro
+- Parceiros atuais:
+  - RUDSON — Madalena
+  - SMART TEC — Canindé
+  - JOÃO APIGUANA — Fortaleza
+  - ANDERSOM — Eusébio
+- Descrição/papel de cada parceiro: a definir futuramente
+- CTA: "Quer ser um parceiro Ventiloar?" → link para formulário ou WhatsApp
+- Espaço para novos parceiros serem adicionados
+---
+## FUNCIONALIDADES TÉCNICAS
+| Funcionalidade | Prioridade | Observação |
+|---|---|---|
+| Formulário de orçamento com cálculo de economia | Alta | Já existe no site atual, reconstruir |
+| Integração com WhatsApp (CTA principal) | Alta | Botão de envio do formulário |
+| Calculadora de economia em JavaScript | Alta | Baseada em m², tarifa e nº de hélices |
+| SEO básico | Alta | Foco em buscas no Ceará |
+| Gerador de Relatório Técnico com exportação PDF | Média | Área privada futura |
+| Gerador de Orçamento (texto formatado) | Média | Área privada futura |
+| Sistema de login / autenticação | Baixa | Implementar futuramente |
+| E-commerce de acessórios | Baixa | Implementar futuramente |
+| Blog / Notícias | Baixa | Estrutura já preparada |
+---
+## TOM DE VOZ E COMUNICAÇÃO
+- **Técnico, mas acessível:** fala com engenheiros e também com donos de comércio sem formação técnica
+- **Confiante, mas humilde:** startup jovem com produto real e validado
+- **Orientado a resultado:** sempre destacar o 80% de economia como âncora principal
+- **Cearense com orgulho:** produto feito no Ceará, para o Ceará (por enquanto)
+- **Evitar:** excesso de jargão técnico nas páginas públicas, promessas não comprovadas, linguagem corporativa fria
+---
+## OBSERVAÇÕES FINAIS
+- Não há redes sociais ativas no momento — não incluir links ou ícones de social
+- Não há cases de clientes ainda — deixar seção preparada com placeholder
+- As subpáginas de área privada (Gerar Orçamento e Gerar Relatório Técnico) existem hoje mas são acessíveis publicamente via URL — no novo site devem exigir autenticação
+- Toda a arquitetura deve ser escalável: o negócio está crescendo e novas seções (blog, cases, área do parceiro) serão adicionadas no futuro
+- Stack tecnológica desejada (React) e se deseja código completo
