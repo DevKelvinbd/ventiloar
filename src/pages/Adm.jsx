@@ -6,6 +6,8 @@ import SyncStatus from '../components/SyncStatus'
 import LeadsManager from '../components/LeadsManager'
 import PlantaTecnica from '../components/PlantaTecnica'
 import RelatorioSistema from '../components/RelatorioSistema'
+import Dashboard from './Dashboard'
+import Engenharia from './Engenharia'
 
 const ADM_CODE = import.meta.env.VITE_ADM_CODE || ''
 const AUTH_KEY = 'ventiloar-adm-auth'
@@ -131,13 +133,8 @@ export default function Adm() {
                 Painel
               </button>
 
-              <Link
-                to="/dashboard"
-                onClick={(e) => {
-                  if (e.ctrlKey || e.metaKey) return // Permite abrir em nova aba
-                  e.preventDefault()
-                  setActiveTab('dashboard')
-                }}
+              <button
+                onClick={() => setActiveTab('dashboard')}
                 className={`px-4 py-3 flex items-center gap-2 border-b-2 transition-colors font-headline text-sm uppercase tracking-widest ${
                   activeTab === 'dashboard'
                     ? 'border-primary-container text-primary-container'
@@ -146,15 +143,10 @@ export default function Adm() {
               >
                 <span className="material-symbols-outlined text-base">dashboard</span>
                 Dashboard
-              </Link>
+              </button>
 
-              <Link
-                to="/engenharia"
-                onClick={(e) => {
-                  if (e.ctrlKey || e.metaKey) return
-                  e.preventDefault()
-                  setActiveTab('engenharia')
-                }}
+              <button
+                onClick={() => setActiveTab('engenharia')}
                 className={`px-4 py-3 flex items-center gap-2 border-b-2 transition-colors font-headline text-sm uppercase tracking-widest ${
                   activeTab === 'engenharia'
                     ? 'border-primary-container text-primary-container'
@@ -163,7 +155,7 @@ export default function Adm() {
               >
                 <span className="material-symbols-outlined text-base">precision_manufacturing</span>
                 Engenharia
-              </Link>
+              </button>
 
               <button
                 onClick={() => setActiveTab('leads')}
@@ -373,6 +365,8 @@ export default function Adm() {
               </div>
             )}
 
+            {activeTab === 'dashboard' && <Dashboard />}
+            {activeTab === 'engenharia' && <Engenharia />}
             {activeTab === 'leads' && <LeadsManager />}
             {activeTab === 'data' && <DataManager />}
             {activeTab === 'audit' && <AuditLog />}
