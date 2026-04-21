@@ -4,6 +4,8 @@ import DataManager from '../components/DataManager'
 import AuditLog from '../components/AuditLog'
 import SyncStatus from '../components/SyncStatus'
 import LeadsManager from '../components/LeadsManager'
+import PlantaTecnica from '../components/PlantaTecnica'
+import RelatorioSistema from '../components/RelatorioSistema'
 
 const ADM_CODE = import.meta.env.VITE_ADM_CODE || ''
 const AUTH_KEY = 'ventiloar-adm-auth'
@@ -26,7 +28,7 @@ export default function Adm() {
   const [code, setCode] = useState('')
   const [error, setError] = useState(false)
   const [authenticated, setAuthenticated] = useState(isAdmAuthenticated())
-  const [activeTab, setActiveTab] = useState('overview') // overview, dashboard, engenharia, leads, data, audit
+  const [activeTab, setActiveTab] = useState('overview') // overview, dashboard, engenharia, leads, data, audit, planta
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -198,6 +200,30 @@ export default function Adm() {
                 <span className="material-symbols-outlined text-base">history</span>
                 Auditoria
               </button>
+
+              <button
+                onClick={() => setActiveTab('planta')}
+                className={`px-4 py-3 flex items-center gap-2 border-b-2 transition-colors font-headline text-sm uppercase tracking-widest ${
+                  activeTab === 'planta'
+                    ? 'border-primary-container text-primary-container'
+                    : 'border-transparent text-on-surface-variant hover:text-on-surface'
+                }`}
+              >
+                <span className="material-symbols-outlined text-base">architecture</span>
+                Planta Técnica
+              </button>
+
+              <button
+                onClick={() => setActiveTab('relatorio')}
+                className={`px-4 py-3 flex items-center gap-2 border-b-2 transition-colors font-headline text-sm uppercase tracking-widest ${
+                  activeTab === 'relatorio'
+                    ? 'border-[#185FA5] text-[#185FA5]'
+                    : 'border-transparent text-on-surface-variant hover:text-on-surface'
+                }`}
+              >
+                <span className="material-symbols-outlined text-base">summarize</span>
+                Relatório
+              </button>
             </div>
 
             {/* Tab Content */}
@@ -284,6 +310,46 @@ export default function Adm() {
                     </div>
                   </div>
 
+                  {/* Planta Técnica Card */}
+                  <div
+                    onClick={() => setActiveTab('planta')}
+                    className="group cursor-pointer bg-surface-container-low p-8 border-l-4 border-[#534AB7] hover:bg-surface-container-high transition-colors"
+                  >
+                    <div className="flex items-center gap-4 mb-4">
+                      <span className="material-symbols-outlined text-[#AFA9EC] text-3xl">architecture</span>
+                      <h3 className="font-headline font-bold uppercase text-lg tracking-widest text-on-surface group-hover:text-[#AFA9EC] transition-colors">
+                        Planta Técnica
+                      </h3>
+                    </div>
+                    <p className="text-sm text-on-surface-variant leading-relaxed mb-6">
+                      Distribua hélices, entradas, saídas e colunas no ambiente e gere planta técnica de ventilação.
+                    </p>
+                    <div className="flex items-center gap-2 text-[#AFA9EC] text-xs font-headline font-bold uppercase tracking-widest">
+                      Acessar
+                      <span className="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">arrow_forward</span>
+                    </div>
+                  </div>
+
+                  {/* Relatório do Sistema Card */}
+                  <div
+                    onClick={() => setActiveTab('relatorio')}
+                    className="group cursor-pointer bg-surface-container-low p-8 border-l-4 border-[#185FA5] hover:bg-surface-container-high transition-colors"
+                  >
+                    <div className="flex items-center gap-4 mb-4">
+                      <span className="material-symbols-outlined text-[#4FC3F7] text-3xl">summarize</span>
+                      <h3 className="font-headline font-bold uppercase text-lg tracking-widest text-on-surface group-hover:text-[#4FC3F7] transition-colors">
+                        Relatório do Sistema
+                      </h3>
+                    </div>
+                    <p className="text-sm text-on-surface-variant leading-relaxed mb-6">
+                      Relatório consolidado de todos os módulos — financeiro, engenharia, leads e plantas. Exportável em PDF.
+                    </p>
+                    <div className="flex items-center gap-2 text-[#4FC3F7] text-xs font-headline font-bold uppercase tracking-widest">
+                      Acessar
+                      <span className="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">arrow_forward</span>
+                    </div>
+                  </div>
+
                   {/* Audit Log Card */}
                   <div
                     onClick={() => setActiveTab('audit')}
@@ -310,6 +376,8 @@ export default function Adm() {
             {activeTab === 'leads' && <LeadsManager />}
             {activeTab === 'data' && <DataManager />}
             {activeTab === 'audit' && <AuditLog />}
+            {activeTab === 'planta' && <PlantaTecnica />}
+            {activeTab === 'relatorio' && <RelatorioSistema />}
 
             {/* Logout Button - Always visible */}
             <div className="flex justify-end pt-6 border-t border-outline-variant">
